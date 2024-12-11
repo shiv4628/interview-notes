@@ -1,0 +1,72 @@
+public static int mostFrequentElement(int arr[]){
+        HashMap<Integer,Integer> freqMap = new HashMap<>();
+        int ans = -1;
+        int maxFreq = 0;
+        for(int i=0;i<arr.length;i++){
+            freqMap.put(arr[i],freqMap.getOrDefault(arr[i],0)+1);
+            if(freqMap.get(arr[i])>maxFreq){
+                maxFreq = freqMap.get(arr[i]);
+                ans = arr[i];
+            }
+        }
+        return ans;
+    }
+	
+public static int mostFrequentElementRaw(int arr[]){
+        HashMap<Integer,Integer> freqMap = new HashMap<>();
+        int ans = -1;
+        int maxFreq = 0;
+        for(int i=0;i<arr.length;i++){
+            if(freqMap.containsKey(arr[i])){
+                int val = freqMap.get(arr[i]);
+                val+=1;
+                freqMap.put(arr[i],val);
+            }else{
+                freqMap.put(arr[i],1);
+            }
+            if(freqMap.get(arr[i])>maxFreq){
+                maxFreq = freqMap.get(arr[i]);
+                ans = arr[i];
+            }
+        }
+        return ans;
+    }
+	
+	
+	
+ public String isSubset( long a1[], long a2[], long n, long m) {
+        HashMap<Long,Integer> freqMap = new HashMap<>();
+        for(long element : a1){
+            freqMap.put(element, freqMap.getOrDefault(element,0)+1);
+        }
+
+        for(long element : a2){
+            //  if(freqMap.containsKey(element) && freqMap.get(element)>0){
+            if(freqMap.getOrDefault(element,0)>0){
+                freqMap.put(element, freqMap.get(element)-1);
+            }else {
+                return "No";
+            }
+        }
+        return "Yes";
+    }
+	
+	
+
+  public String isSubsetOld( long a1[], long a2[], long n, long m) {
+        HashMap<Long,Integer> freqMap = new HashMap<>();
+        for(long element : a1){
+            freqMap.put(element, freqMap.getOrDefault(element,0)+1);
+        }
+
+        for(long element : a2){
+              if(freqMap.containsKey(element) && freqMap.get(element)>0){
+                freqMap.put(element, freqMap.get(element)-1);
+            }else {
+                return "No";
+            }
+        }
+        return "Yes";
+    }
+	
+	
