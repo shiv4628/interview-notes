@@ -1,3 +1,89 @@
+List<Integer> nums = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+Map<Boolean,List<Integer>> result = nums.stream().collect(Collectors.partitionBy( num -> num%2==0));
+List<Integer> evenNums = result.get(true);
+List<Integer> oddNums = result.get(false);
+
+#############################################
+
+// Sort by gender (Male first) and then by name
+/*Emlpoyee{
+id, name, gender , salary
+}
+
+male->name
+*/
+List<Employee> sortedEmployees = employees.stream()
+		.sorted(Comparator.comparing(e -> e.gender)
+				.reversed() // Reverse to make "Male" come first
+				.thenComparing(e -> e.name))
+		.collect(Collectors.toList());
+
+// Print sorted list
+sortedEmployees.forEach(System.out::println);
+
+
+###############################################
+
+
+//convert words list to wordsmap
+List<String> words = Arrays.asList("one", "two", "three", "four", "five", "six");
+
+// Convert to Map<String, Integer> where the key is the word and value is its length
+Map<String, Integer> wordLengthMap = words.stream()
+		.collect(Collectors.toMap(word -> word, word -> word.length()));
+
+// Print the resulting map
+wordLengthMap.forEach((key, value) -> System.out.println(key + " = " + value));
+
+
+###############################################
+SQL
+
+Employee
+|Name |Station|Salary|
+|A    |1      |2000  |
+|B    |2      |1500  |
+|C    |3      |1050  |
+|D    |4      |200   |
+|E    |5      |2000  |
+
+o/p
+|Name |Station|Salary|
+|A    |1      |2000  |
+|E    |5      |2000  |
+
+Write a query to display employee having same salary
+
+select Name, Station, Salary from Employee where Salary in (
+    select Salary from Employee group by Salary having count(*)>1
+);
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+find the employee name with second highest salary in each department, considering the table structure as here 
+employee  					    	dept 
+id name sal dept_id            id name
+
+SELECT 
+    e1.department_name,
+    e1.employee_name,
+    e1.salary
+FROM 
+    employee e1
+JOIN 
+    dept d ON e1.dept_id = d.id
+WHERE 
+    e1.salary = (
+        SELECT MAX(e2.salary)
+        FROM employee e2
+        WHERE e2.dept_id = e1.dept_id
+          AND e2.salary < e1.salary
+    )
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
 public static int mostFrequentElement(int arr[]){
         HashMap<Integer,Integer> freqMap = new HashMap<>();
         int ans = -1;
