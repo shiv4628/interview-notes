@@ -1,0 +1,91 @@
+List<Integer> nums = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+Map<Boolean,List<Integer>> result = nums.stream().collect(Collectors.partitionBy( num -> num%2==0));
+List<Integer> evenNums = result.get(true);
+List<Integer> oddNums = result.get(false);
+
+#############################################
+
+// Sort by gender (Male first) and then by name
+/*Emlpoyee{
+id, name, gender , salary
+}
+
+male->name
+*/
+List<Employee> sortedEmployees = employees.stream()
+		.sorted(Comparator.comparing(e -> e.gender)
+				.reversed() // Reverse to make "Male" come first
+				.thenComparing(e -> e.name))
+		.collect(Collectors.toList());
+
+// Print sorted list
+sortedEmployees.forEach(System.out::println);
+
+
+###############################################
+
+
+//convert words list to wordsmap
+List<String> words = Arrays.asList("one", "two", "three", "four", "five", "six");
+
+// Convert to Map<String, Integer> where the key is the word and value is its length
+Map<String, Integer> wordLengthMap = words.stream()
+		.collect(Collectors.toMap(word -> word, word -> word.length()));
+
+// Print the resulting map
+wordLengthMap.forEach((key, value) -> System.out.println(key + " = " + value));
+
+
+
+###############################################
+
+
+//first character that does not repert
+input = "aabbcdec"
+output = "d"
+
+public static char firstNonRepeatingChar(String str){
+	Map<Character, Integer> charCount = new LinkedHashMap<>();
+	
+	//creating a character frequeny map
+	for(int i=0; i<str.length; i++){
+	char c = str.charAt(i);
+	charCount.put(c, charCount.getOrDefault(c,0)+1);
+	}
+	
+	for(Map.Entry<Character, Integer> entry : charCount.entrySet()){
+		if(entry.getValue()==1) return entry.getKey();
+	}
+	
+	//if no repeating char found
+	return '0';
+}
+
+//using Java 8
+input.chars()
+.mapToObj(c -> (char) c)
+.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+.entrySet()
+.stream()
+.filter( entry -> entry.getValue()==1 )
+.map(Map.Entry::getKey)
+.findFirst()
+.orElse(null);
+
+####################################################
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        
+        List<Integer> numbers = Arrays.asList(10, 20, 5, 8, 50, 30, 50);
+        Integer ans  = numbers.stream()
+                        .distinct()
+                        .sorted((a, b) -> Integer.compare(b, a))
+                        .skip(1)
+                        .findFirst()
+                        .orElse(null);
+                        
+        System.out.println(ans);
+    }
+}
