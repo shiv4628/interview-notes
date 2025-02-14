@@ -1,88 +1,33 @@
-List<Integer> nums = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
-Map<Boolean,List<Integer>> result = nums.stream().collect(Collectors.partitionBy( num -> num%2==0));
-List<Integer> evenNums = result.get(true);
-List<Integer> oddNums = result.get(false);
 
-#############################################
+//String compression
+public static void main(String[] args) {
+        String str = "aabbbabbc";
+        String output = compressString(str);
+        System.out.println(output);
+    }
 
-// Sort by gender (Male first) and then by name
-/*Emlpoyee{
-id, name, gender , salary
-}
+    public static String compressString(String str) {
+        if (str == null || str.isEmpty()) {
+            return "";
+        }
 
-male->name
-*/
-List<Employee> sortedEmployees = employees.stream()
-		.sorted(Comparator.comparing(e -> e.gender)
-				.reversed() // Reverse to make "Male" come first
-				.thenComparing(e -> e.name))
-		.collect(Collectors.toList());
+        StringBuilder compressed = new StringBuilder();
+        int count = 1;
 
-// Print sorted list
-sortedEmployees.forEach(System.out::println);
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) == str.charAt(i - 1)) {
+                count++;
+            } else {
+                compressed.append(count).append(str.charAt(i - 1));
+                count = 1;
+            }
+        }
 
+        compressed.append(count).append(str.charAt(str.length() - 1)); // Append the last character count
+        return compressed.toString();
+    }
 
-###############################################
-
-
-//convert words list to wordsmap
-List<String> words = Arrays.asList("one", "two", "three", "four", "five", "six");
-
-// Convert to Map<String, Integer> where the key is the word and value is its length
-Map<String, Integer> wordLengthMap = words.stream()
-		.collect(Collectors.toMap(word -> word, word -> word.length()));
-
-// Print the resulting map
-wordLengthMap.forEach((key, value) -> System.out.println(key + " = " + value));
-
-
-###############################################
-SQL
-
-Employee
-|Name |Station|Salary|
-|A    |1      |2000  |
-|B    |2      |1500  |
-|C    |3      |1050  |
-|D    |4      |200   |
-|E    |5      |2000  |
-
-o/p
-|Name |Station|Salary|
-|A    |1      |2000  |
-|E    |5      |2000  |
-
-Write a query to display employee having same salary
-
-select Name, Station, Salary from Employee where Salary in (
-    select Salary from Employee group by Salary having count(*)>1
-);
-
-
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-
-find the employee name with second highest salary in each department, considering the table structure as here 
-employee  					    	dept 
-id name sal dept_id            id name
-
-SELECT 
-    e1.department_name,
-    e1.employee_name,
-    e1.salary
-FROM 
-    employee e1
-JOIN 
-    dept d ON e1.dept_id = d.id
-WHERE 
-    e1.salary = (
-        SELECT MAX(e2.salary)
-        FROM employee e2
-        WHERE e2.dept_id = e1.dept_id
-          AND e2.salary < e1.salary
-    )
-
-
-&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+##################################################################
 
 public static int mostFrequentElement(int arr[]){
         HashMap<Integer,Integer> freqMap = new HashMap<>();
@@ -97,6 +42,8 @@ public static int mostFrequentElement(int arr[]){
         }
         return ans;
     }
+
+##################################################################
 	
 public static int mostFrequentElementRaw(int arr[]){
         HashMap<Integer,Integer> freqMap = new HashMap<>();
@@ -120,7 +67,7 @@ public static int mostFrequentElementRaw(int arr[]){
 	
 	
 	
- public String isSubset( long a1[], long a2[], long n, long m) {
+public String isSubset( long a1[], long a2[], long n, long m) {
         HashMap<Long,Integer> freqMap = new HashMap<>();
         for(long element : a1){
             freqMap.put(element, freqMap.getOrDefault(element,0)+1);
@@ -139,7 +86,7 @@ public static int mostFrequentElementRaw(int arr[]){
 	
 	
 
-  public String isSubsetOld( long a1[], long a2[], long n, long m) {
+public String isSubsetOld( long a1[], long a2[], long n, long m) {
         HashMap<Long,Integer> freqMap = new HashMap<>();
         for(long element : a1){
             freqMap.put(element, freqMap.getOrDefault(element,0)+1);
@@ -156,3 +103,73 @@ public static int mostFrequentElementRaw(int arr[]){
     }
 	
 	
+
+
+public class EmployeeNameIdComparator implements Comparator<Employee> {
+    @Override
+    public int compare(Employee emp1, Employee emp2) {
+        int nameCompare = emp1.getEmpName().compareTo(emp2.getEmpName());
+        if (nameCompare!= 0) {
+            return nameCompare; // Sort by name if names are different
+        } else {
+            return Integer.compare(emp1.getEmpId(), emp2.getEmpId()); // Otherwise, sort by ID
+        }
+    }
+}
+
+
+public class Employee implements Comparable<Employee> {
+    // ... (other fields, constructor, getters, etc.)
+
+    @Override
+    public int compareTo(Employee other) {
+        int nameCompare = this.empName.compareTo(other.empName); // Compare names
+        if (nameCompare != 0) {
+            return nameCompare; // If names are different, sort by name
+        } else {
+            return Integer.compare(this.empId, other.empId); // Otherwise, sort by ID
+        }
+    }
+}
+
+
+//target sum
+Map<Integer, Integer> numMap = new HashMap<>();
+	for(int i=0; i<nums.length; i++){
+		int complement = target - nums[i];
+		if(numMap.containsKey(complement)){
+			return new int[] {numMap.get(complement),i};
+		}else{
+			numMap.put(nums[i],i);
+		}
+	}
+	// if no solution found
+	return new int[] {};
+		
+############################################################
+
+	
+//program to push zero to front and ones to end in the list
+public class PushZeroOne {
+    public static void main(String[] args) {
+        int[] arr = {1, 0, 1, 0, 1, 0, 1, 0};
+        int left = 0, right = arr.length - 1;
+
+        while (left < right) {
+            while (left < right && arr[left] == 0) left++;
+            while (left < right && arr[right] == 1) right--;
+
+            if (left < right) {
+                arr[left] = 0;
+                arr[right] = 1;
+                left++;
+                right--;
+            }
+        }
+
+        System.out.println("Rearranged Array: " + Arrays.toString(arr));
+    }
+}
+
+
+#############################################################

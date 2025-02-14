@@ -1,0 +1,187 @@
+Some methods //
+Optional Methods
+orElse()
+orElseThrow()
+orElseGet(Supplier)
+get()
+
+
+
+############################################
+
+List<Integer> nums = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
+Map<Boolean,List<Integer>> result = nums.stream().collect(Collectors.partitionBy( num -> num%2==0));
+List<Integer> evenNums = result.get(true);
+List<Integer> oddNums = result.get(false);
+
+###########################################
+
+//flatMap basic implementation
+List<String> finalRes = listOfLists.stream().flatMap(List::stream).collect(Collectors.tolist());
+
+###########################################
+
+//find the largest int without using max()
+List<Integer> numbers = Arrays.asList(4, 2, 6, 1, 5);
+int maxNumber = numbers.stream()
+				.reduce((a, b) -> a > b ? a : b)
+				.orElse(null)  //orElseThrow()
+
+//largest using max()
+Integer maxNumber = numbers.stream().max(Integer::compareTo).get();
+
+
+//largest using sorted()
+Integer maxNumber = numbers.stream()
+                    .sorted((a, b) -> b - a) // Sort in descending order
+                    .findFirst() // Get the first element (largest)
+                    .orElse(null);
+System.out.println("Largest number: " + maxNumber); 
+
+#############################################
+
+//find character frequeny
+public class CharFrequency {
+    public static void main(String[] args) {
+        String str = "hello world";
+
+        Map<Character, Long> charCount = str.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        System.out.println("Character Frequency: " + charCount);
+    }
+}
+
+Output : 
+Character Frequency: { =1, r=1, d=1, e=1, h=1, l=3, o=2, w=1}
+
+#############################################
+
+//sort string in ascending order
+String str = "java";
+String sortedStr = str.chars()  // Convert string to IntStream
+				.sorted()               // Sort the stream
+				.mapToObj(c -> String.valueOf((char) c)) // Convert int to char and then to String
+				.collect(Collectors.joining()); // Collect as a single string
+
+System.out.println("Sorted String: " + sortedStr);
+
+//sort in descending
+String sortedStr = str.chars()
+                .mapToObj(c -> (char) c) // Convert int to Character
+                .sorted(Comparator.reverseOrder()) // Sort in descending order
+                .map(String::valueOf) // Convert char to String
+                .collect(Collectors.joining()); // Collect as a single string
+
+System.out.println("Sorted String (Descending): " + sortedStr);
+
+#############################################
+
+//Multiply even numbers by 2, keep odd numbers same, list size would be same
+public static void main(String[] args) {
+
+        List<Integer> input = Arrays.asList(1, 2, 3, 4, 5, 6);
+        List<Integer> output = input.stream()
+                .map(n -> (n % 2 == 0) ? n * 2 : n) // Multiply even numbers by 2, keep odd numbers same
+                .collect(Collectors.toList());
+        System.out.println(output); // Output: [1, 4, 3, 8, 5, 12]
+}
+
+#############################################
+
+//increase the salary of employees by 10,000 if their salary is less than 20,000 
+//while preserving the original list size.
+List<Employee> updatedEmployees = employees.stream()
+            .map(emp -> emp.salary < 20000 ? new Employee(emp.name, emp.salary + 10000) : emp)
+            .collect(Collectors.toList());
+
+#############################################
+
+#############################################
+
+// Sort by gender (Male first) and then by name
+/*Emlpoyee{
+id, name, gender , salary
+}
+
+male->name
+*/
+List<Employee> sortedEmployees = employees.stream()
+		.sorted(Comparator.comparing(e -> e.gender)
+				.reversed() // Reverse to make "Male" come first
+				.thenComparing(e -> e.name))
+		.collect(Collectors.toList());
+
+// Print sorted list
+sortedEmployees.forEach(System.out::println);
+
+
+###############################################
+
+
+//convert words list to wordsmap
+List<String> words = Arrays.asList("one", "two", "three", "four", "five", "six");
+
+// Convert to Map<String, Integer> where the key is the word and value is its length
+Map<String, Integer> wordLengthMap = words.stream()
+		.collect(Collectors.toMap(word -> word, word -> word.length()));
+
+// Print the resulting map
+wordLengthMap.forEach((key, value) -> System.out.println(key + " = " + value));
+
+
+
+###############################################
+
+
+//first character that does not repert
+input = "aabbcdec"
+output = "d"
+
+public static char firstNonRepeatingChar(String str){
+	Map<Character, Integer> charCount = new LinkedHashMap<>();
+	
+	//creating a character frequeny map
+	for(int i=0; i<str.length; i++){
+	char c = str.charAt(i);
+	charCount.put(c, charCount.getOrDefault(c,0)+1);
+	}
+	
+	for(Map.Entry<Character, Integer> entry : charCount.entrySet()){
+		if(entry.getValue()==1) return entry.getKey();
+	}
+	
+	//if no repeating char found
+	return '0';
+}
+
+//using Java 8
+input.chars()
+.mapToObj(c -> (char) c)
+.collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+.entrySet()
+.stream()
+.filter( entry -> entry.getValue()==1 )
+.map(Map.Entry::getKey)
+.findFirst()
+.orElse(null);
+
+####################################################
+
+//find second highest
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        
+        List<Integer> numbers = Arrays.asList(10, 20, 5, 8, 50, 30, 50);
+        Integer ans  = numbers.stream()
+                        .distinct()
+                        .sorted((a, b) -> Integer.compare(b, a))
+                        .skip(1)  //skip(2) for 3rd highest 
+                        .findFirst()
+                        .orElse(null);
+                        
+        System.out.println(ans); // 30 
+    }
+}

@@ -1,0 +1,80 @@
+SQL
+
+Employee
+|Name |id     |Salary|
+|A    |1      |2000  |
+|B    |2      |1500  |
+|C    |3      |1050  |
+|D    |4      |200   |
+|E    |5      |2000  |
+
+o/p
+|Name |id     |Salary|
+|A    |1      |2000  |
+|E    |5      |2000  |
+
+Write a query to display employee having same salary
+
+select Name, id, Salary from Employee where Salary in (
+    select Salary from Employee group by Salary having count(*)>1
+);
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+find the employee name with second highest salary in each department, considering the table structure as here 
+employee  					    	dept 
+id name sal dept_id                 id name
+
+SELECT 
+    e1.department_name,
+    e1.employee_name,
+    e1.salary
+FROM 
+    employee e1
+JOIN 
+    dept d ON e1.dept_id = d.id
+WHERE 
+    e1.salary = (
+        SELECT MAX(e2.salary)
+        FROM employee e2
+        WHERE e2.dept_id = e1.dept_id
+          AND e2.salary < e1.salary
+    )
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+Rough Copy paste
+SELECT
+    e.employee_name AS employee_name,
+    m.employee_name AS manager_name
+FROM
+    employees e
+INNER JOIN
+    employees m ON e.manager_id = m.employee_id;
+	
+	
+SELECT deptid, COUNT(*) AS count
+FROM Employee 
+GROUP BY deptid;
+
+
+SELECT d.deptName, COUNT(e.empid) AS employee_count
+FROM Employee e
+JOIN Department d ON e.deptid = d.deptid
+GROUP BY d.deptName;
+
+
+SELECT d.department_name, MAX(e.salary) AS highest_salary
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id
+GROUP BY d.department_name;
+
+
+//third highest_salary
+SELECT DISTINCT Salary
+FROM Employee
+ORDER BY Salary DESC
+LIMIT 2, 1;
+

@@ -1,0 +1,188 @@
+
+public class CustomStack {
+    protected int[] data;
+    private static final int DEFAULT_SIZE = 10;
+
+    int ptr = -1;
+
+    public CustomStack(){
+        this(DEFAULT_SIZE);
+    }
+
+    public CustomStack(int size) {
+        this.data = new int[size];
+    }
+
+    public boolean push(int item) {
+        if (isFull()) {
+            System.out.println("Stack is full!!");
+            return false;
+        }
+        ptr++;
+        data[ptr] = item;
+        return true;
+    }
+
+    public int pop() throws StackException {
+        if (isEmpty()) {
+            throw new StackException("Cannot pop from an empty stack!!");
+        }
+//        int removed = data[ptr];
+//        ptr--;
+//        return removed;
+        return data[ptr--];
+    }
+
+    public int peek() throws StackException {
+        if (isEmpty()) {
+            throw new StackException("Cannot peek from an empty stack!!");
+        }
+        return data[ptr];
+    }
+
+    public boolean isFull() {
+        return ptr == data.length - 1; // ptr is at last index
+    }
+
+    public boolean isEmpty() {
+        return ptr == -1;
+    }
+}
+
+
+public class StackException extends Exception{
+
+    public StackException(String message) {
+        super(message);
+    }
+}
+
+
+public class DynamicStack extends CustomStack{
+
+    public DynamicStack() {
+        super(); // it will call CustomStack()
+    }
+
+    public DynamicStack(int size) {
+        super(size); // it will call CustomStack(int size)
+    }
+
+    @Override
+    public boolean push(int item) {
+        // this takes care of it being full
+        if (this.isFull()) {
+            // double the array size
+            int[] temp = new int[data.length * 2];
+
+            // copy all previous items in new data
+            for (int i = 0; i < data.length; i++) {
+                temp[i] = data[i];
+            }
+
+            data = temp;
+        }
+
+        // at this point we know that array is not full
+        // insert item
+        return super.push(item);
+    }
+}
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+//Solution without modifying grid
+class Solution {
+    public int numIslands(char[][] grid) {
+        if (grid == null || grid.length == 0) {
+            return 0;
+        }
+
+        int rows = grid.length;
+        int cols = grid[0].length;
+        boolean[][] visited = new boolean[rows][cols]; // New visited array
+        int numIslands = 0;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (grid[i][j] == '1' && !visited[i][j]) {
+                    numIslands++;
+                    dfs(grid, visited, i, j);
+                }
+            }
+        }
+
+        return numIslands;
+    }
+
+    private void dfs(char[][] grid, boolean[][] visited, int i, int j) {
+        // Check boundaries and if the cell is water ('0') or already visited
+        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] == '0' || visited[i][j]) {
+            return;
+        }
+
+        // Mark the cell as visited
+        visited[i][j] = true;
+
+        // Visit all 4 possible directions (up, down, left, right)
+        dfs(grid, visited, i + 1, j); // Down
+        dfs(grid, visited, i - 1, j); // Up
+        dfs(grid, visited, i, j + 1); // Right
+        dfs(grid, visited, i, j - 1); // Left
+    }
+}
+
+//Solution with modifying same grid
+class Solution {
+    public int numIslands(char[][] grid) {
+        if (grid == null || grid.length == 0) {
+            return 0;
+        }
+        
+        int numIslands = 0;
+        int rows = grid.length;
+        int cols = grid[0].length;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (grid[i][j] == '1') {
+                    numIslands++;
+                    dfs(grid, i, j);
+                }
+            }
+        }
+
+        return numIslands;
+    }
+
+    private void dfs(char[][] grid, int i, int j) {
+        // Check boundaries and if the cell is water or already visited
+        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length || grid[i][j] == '0') {
+            return;
+        }
+
+        // Mark the cell as visited by setting it to '0'
+        grid[i][j] = '0';
+
+        // Visit all 4 possible directions (up, down, left, right)
+        dfs(grid, i + 1, j); // Down
+        dfs(grid, i - 1, j); // Up
+        dfs(grid, i, j + 1); // Right
+        dfs(grid, i, j - 1); // Left
+    }
+}
+
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
