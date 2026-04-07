@@ -1,0 +1,261 @@
+"ssshhhiivenddraa"
+
+
+
+Q1.
+https://leetcode.com/problems/count-unique-characters-of-all-substrings-of-a-given-string/description/
+ 
+in the above program it is just asked for all the strings with any length. In interview please expect of specific size. They will ask you to find unique substrings with specific length.
+ 
+Ex: "abc" -> input
+ 
+ab, bc, ca -> output
+Count Unique Characters of All Substrings of a Given String - LeetCode
+Can you solve this real interview question? Count Unique Characters of All Substrings of a Given String - Let's define a function countUniqueChars(s) that returns the number of unique characters in...
+ 
+ 
+Q2. 
+https://leetcode.com/discuss/interview-question/949160/goldman-sachs-phone-most-frequent-ip-address-from-the-logs
+
+
+String Arrays coding
+and String
+for leetcode easy and medium
+
+SQL:
+inner joins, joins with more than 2 tables
+self joins
+
+
+
+
+
+========================================
+
+
+
+input : aabbccdd
+
+output : ababcdcd
+
+
+input.stream().collect(Collectors.groupingBy())
+
+
+aabbccdd
+
+
+String word = "aabbccdd";
+char[] arr = word.toCharArray();
+
+for(int i=1; i<arr.length; i++ ){
+
+	if(arr[i] == arr[i-1]){
+		//swapping arr[i] and arr[i+1]
+		char temp = arr[i];
+		arr[i] = arr[i+1];
+		arr[i+1] = temp;
+	}
+}
+
+
+
+
+employee table
+emi_id emp_name dept_id salary
+
+department table
+dept_id dept_name
+
+
+select dept_name, max(salary) as max_sal from employee e join department d on e.dept_id = d.dept_id group by dept_name;
+
+==================================================
+
+
+Find the employees who are younger or equal to 25 years from those employees who are older than 25 years using Java Stream.
+
+Employee : id,name,age
+
+list // this is Employee List
+
+Map<Boolean, List<Employee>> empList = list.stream().partitioningBy(emp -> emp.getAge()<=25);
+
+List<Employee> youngEmployee = empList.get(true);
+
+System.out.println(youngEmployee);
+
+
+
+
+
+Find the minimum number of platforms needed to accommodate all the trains without any train having to wait.
+int[][] arrDep = {
+				{1110,1130},
+				{1120,1430},
+				{1530,1545}
+		};
+		
+		
+	
+public static int findPlatforms(){
+
+
+
+
+Find all pairs of elements in an array that sum up to a given target.
+
+Input:   
+
+int[] numbers = {2, 7, 11, 15, -2, 7, 3, 6}; 
+int target = 9;
+ 
+
+public static void findPairs(int[] numbers, int target){
+
+Map<Integer, Integer> map = new HashMap<>();
+
+for(int num : numbers){
+	int complement = target -num;
+	if(map.getOrDefault(complement,0)>0){
+		System.out.println( "(" + complement + "," + num + ")");
+		map.put(complement, map.get(complement)-1);
+	}else{
+		map.put(num, map.getOrDefault(num,0)+1);
+	}
+
+}
+
+}
+
+=====================================================
+
+
+
+String a = "aaabcccedfde"
+a=3 b =1 c=3
+
+
+Map<Character, Integer> map = new HashMap<>();
+int count = 1;
+
+for(int i=0; i<a.length(); i++){
+	map.put(a.charAt(i), map.getOrDefault(a.charAt(i),0)+1);
+}
+
+System.out.println(map);
+
+
+
+
+
+[1,2,3,4,5,6] -> Input
+
+[1,4,3,8,5,12] -> output
+
+input.stream().map(item -> (item%2==0)? item*2 : item).collect(Collectors.toList());
+
+
+
+String str ="aTcBb"
+
+output : abcBT
+
+
+String a = "abcde"
+String b ="cde"
+
+
+if(a.includes(b)){
+console.log("b is substring of a");
+}else{
+console.log("b is not substring of a");
+}
+
+
+
+==================================================
+
+public final class MySingleton{
+	private static MySingleton instance;
+	
+	private MySingleton(){}
+	
+	public static synchronized MySingleton getInstance(){
+		if(instance==null){
+		instance = new MySingleton();
+		}
+		return instance;
+	}
+
+}
+
+
+
+
+// map containing name and price of fruits, find the name with most expensive price
+// map -> map of fruit
+
+public static String findMaxPrice(){
+
+	int max = Integer.MIN_VALUE;
+	String ans = "";
+	for(Map.Entry<String, Integer> entry : map.entrySet()){
+		if(entry.getValue()>max){
+		max = entry.getValue();
+		ans = entry.getKey();
+		}
+	}
+	
+	return ans;
+}
+
+
+================================================
+
+
+ siemens
+ 
+ gps
+ end to end exposure
+ 
+ 
+ 
+
+
+Systems Integration Senior Specialist  2004600 
+ 
+Plot No. 178, EPIP Phase II, Whitefield Industrial Area   560066
+
+
+Syed Jameer  9986998822  Syed.Jameer@nttdata.com
+
+
+
+
+Appiness Interactive Pvt Ltd   Digital Marketing Domain
+AIPL/24/860  Senior Software Developer
+Better opportunities/Job Relocation
+
+406, 24th Cross Rd, Siddanna Layout, Banashankari Stage II, Banashankari  560070
+Arvind M 8073882549  arvind@appinessworld.com
+Deneta Dias 7022314944 hr@appinessworld.com
+
+Rmz Centennial Block-D, RMZ CENTENNIAL, 7th Cross Rd, Phase 2, Brookefield  560048
+Diganta Patra 9674143382
+Shreekekha Bhar 9874446916
+
+
+
+CT/85333/2018   470000
+Sri Sai Tower, 994, 1st Main, Koramangala 1st Block  560034
+Manjusha K 080-47106849 manjusha.k@capitalcribs.com
+Kunal T 080-47106849 hr@capitalcribs.com
+
+
+Had a career gap for 1 year and 3 months from Dec 2022 to March 2024 due to some family medical reasons
+
+Skmabmbillu@1113
+
+============================================
+

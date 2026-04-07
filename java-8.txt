@@ -5,7 +5,8 @@ orElseThrow()
 orElseGet(Supplier)
 get()
 
-
+1. we can use anonymous class for FI method impelementations
+resources : durgesh video, chatgpt, notes
 
 ############################################
 
@@ -56,6 +57,16 @@ public class CharFrequency {
 Output : 
 Character Frequency: { =1, r=1, d=1, e=1, h=1, l=3, o=2, w=1}
 
+//case-insensitive and without spaces character
+Map<Character, Long> charCount = str.toLowerCase().chars()
+        .filter(c -> c != ' ')     //to remove spaces
+        .mapToObj(c -> (char) c)
+        .collect(Collectors.groupingBy(
+                Function.identity(),
+                Collectors.counting()
+        ));
+
+
 #############################################
 
 //sort string in ascending order
@@ -97,6 +108,16 @@ List<Employee> updatedEmployees = employees.stream()
             .collect(Collectors.toList());
 
 #############################################
+
+// Converting list to HashMap, id as key and name as value
+List<Student> students = Arrays.asList(
+            new Student(1, "Alice", new Date()), //id, name, date
+            new Student(2, "Bob", new Date()),
+            new Student(3, "Charlie", new Date())
+        );
+
+Map<Integer, String> studentMap = students.stream()
+		.collect(Collectors.toMap(Student::getId, Student::getName));
 
 #############################################
 

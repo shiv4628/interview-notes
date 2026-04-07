@@ -1,0 +1,34 @@
+Spring Security:
+
+1. In keycloak the client is our resource server that needs to be secured i.e in our case api gateway
+2. 
+
+
+
+
+
+
+===============kubernetes=============
+
+1. secrets and config map are there so that we dont need to store in SB properties file and skip reployment in case we change these
+2. explore api server and kubectl role
+3. explore master node component and thier role and functionality
+4. 
+
+
+
+==============spring============
+1. auto-configuration is basically a programmatic configurations
+2. object creation -> externalize -> ioc container, spring will handle creation(bean)
+
+
+
+
+
+
+
+===========================================
+Doubts:
+
+1. csrf?
+2. 

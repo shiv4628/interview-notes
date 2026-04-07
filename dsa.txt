@@ -177,6 +177,37 @@ class Solution {
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+// calculate the difference between sum at odd levels and sum at even levels
+// you need to calculate the sum of all odd levels and all even levels 
+// and then find the difference
+
+
+       10  -> root, odd level   
+    20   30  -> even level
+	   40  60	-> odd level
+
+class TreeNode{
+int val;
+TreeNode left, right;
+//constructors
+}
+
+public static int getlevelDifference(TreeNode root){  //10
+	return calculateDifference(root,1);  //10, 1
+}
+
+public static int calculateDifference(TreeNode node, int level){
+	//base condition
+	if(node==null) return 0;
+	
+	//if the level is odd, add as factor or else subtract
+	int factor = (level%2==1)?1:-1;  // 1 , -1
+	
+	//recursion calls
+	return factor * node.val + calculateDifference(node.left, level+1) + calculateDifference(node.right, level+1);
+} 				10 + cal(20, 2) + cal(30,2) + 
+
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
