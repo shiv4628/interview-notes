@@ -2039,3 +2039,1297 @@ This approach is useful when you don't want to block the main thread indefinitel
 
 Would you like a more detailed explanation or another example?
 
+
+## **Conversation**
+
+### Chat : explain how this thread are created in declaration itself,
+
+class Counter {
+    private int count = 0;
+
+    public synchronized void increment() {
+        count++;
+    }
+
+    public int getCount() {
+        return count;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Counter counter = new Counter();
+
+        Thread t1 = new Thread(() -> {
+            for (int i = 0; i < 1000; i++) {
+                counter.increment();
+            }
+        });
+
+        Thread t2 = new Thread(() -> {
+            for (int i = 0; i < 1000; i++) {
+                counter.increment();
+            }
+        });
+
+        t1.start();
+        t2.start();
+
+        try {
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Count: " + counter.getCount());
+    }
+}
+
+### Ans : 
+
+In your code, the threads are created using a **lambda expression** while creating the `Thread` object. Let’s break it down slowly.
+
+---
+
+## 1. The Important Line
+
+```java
+Thread t1 = new Thread(() -> {
+    for (int i = 0; i < 1000; i++) {
+        counter.increment();
+    }
+});
+```
+
+At first glance it looks like the thread is created **directly in the declaration**, but actually several things are happening internally.
+
+---
+
+# 2. What `Thread` Constructor Expects
+
+The `Thread` class has a constructor like this:
+
+```java
+Thread(Runnable target)
+```
+
+It expects an object of type **Runnable**.
+
+`Runnable` is a functional interface:
+
+```java
+public interface Runnable {
+    void run();
+}
+```
+
+So normally you would write:
+
+```java
+Runnable r = new Runnable() {
+    @Override
+    public void run() {
+        for (int i = 0; i < 1000; i++) {
+            counter.increment();
+        }
+    }
+};
+
+Thread t1 = new Thread(r);
+```
+
+---
+
+# 3. How Lambda Simplifies This
+
+Since `Runnable` has **only one method**, Java allows **lambda expressions**.
+
+This lambda:
+
+```java
+() -> {
+    for (int i = 0; i < 1000; i++) {
+        counter.increment();
+    }
+}
+```
+
+means:
+
+```
+implementation of run() method
+```
+
+So Java internally converts this into something like:
+
+```java
+Runnable r = () -> {
+    for (int i = 0; i < 1000; i++) {
+        counter.increment();
+    }
+};
+```
+
+Then:
+
+```java
+Thread t1 = new Thread(r);
+```
+
+---
+
+# 4. What Actually Happens Internally
+
+This line:
+
+```java
+Thread t1 = new Thread(() -> {...});
+```
+
+is internally equivalent to:
+
+```java
+Thread t1 = new Thread(new Runnable() {
+    @Override
+    public void run() {
+        for (int i = 0; i < 1000; i++) {
+            counter.increment();
+        }
+    }
+});
+```
+
+So the lambda **creates a Runnable implementation** and passes it to the `Thread`.
+
+---
+
+# 5. Important Concept
+
+**Thread is not created by lambda.**
+
+Lambda creates **Runnable implementation**.
+
+Then `Thread` uses that `Runnable`.
+
+Flow:
+
+```
+Lambda → Runnable implementation → passed to Thread constructor → Thread object created
+```
+
+---
+
+# 6. Execution Flow
+
+When you call:
+
+```java
+t1.start();
+```
+
+Internally JVM does:
+
+```
+start()
+   ↓
+new OS thread created
+   ↓
+Thread.run()
+   ↓
+Runnable.run()
+```
+
+So it eventually executes the lambda code.
+
+---
+
+# 7. Visual Flow
+
+```
+Thread t1 = new Thread(() -> {...});
+
+          Lambda
+             ↓
+      Runnable implementation
+             ↓
+     Passed to Thread constructor
+             ↓
+        Thread object created
+             ↓
+           start()
+             ↓
+          run() executes
+```
+
+---
+
+# 8. Why This is Preferred in Modern Java
+
+This style is used because it is **short and readable**.
+
+Old way:
+
+```java
+new Thread(new Runnable() {
+    public void run() {
+        // logic
+    }
+}).start();
+```
+
+Modern way:
+
+```java
+new Thread(() -> {
+   // logic
+}).start();
+```
+
+Much cleaner.
+
+---
+
+# 9. Small Improvement (Best Practice)
+
+In real **Spring Boot microservices**, threads are usually not created manually like this. Instead we use:
+
+* **ExecutorService**
+* **ThreadPoolTaskExecutor**
+* **CompletableFuture**
+
+Which you were learning earlier.
+
+---
+
+✅ If you want, I can also explain **how the JVM actually schedules `t1` and `t2` after `start()` is called**, which is one of the **most confusing multithreading interview questions**.
+
+
+## **Conversation**
+
+### Chat : Explain java multi-threading, also explain its usage in real time java spring boot microservice application
+
+I’ll explain **Java Multithreading** step-by-step and then connect it with **real-world Spring Boot microservice use cases**, since you already have **4 years of Java + Spring Boot experience**. This will also help you answer **interview questions confidently**. 🚀
+
+---
+
+# 1. What is Multithreading in Java?
+
+**Multithreading** means running **multiple threads concurrently inside a single process**.
+
+A **thread** is the **smallest unit of execution** in a program.
+
+Example:
+If a program performs multiple tasks like:
+
+* Reading data
+* Processing data
+* Writing results
+
+Instead of doing them **one by one**, multiple threads can run them **simultaneously**.
+
+### Example
+
+Single thread
+
+```
+Task1 -> Task2 -> Task3
+```
+
+Multithreading
+
+```
+Thread1 -> Task1
+Thread2 -> Task2
+Thread3 -> Task3
+```
+
+So execution becomes **faster and more efficient**.
+
+---
+
+# 2. Why Multithreading is Needed
+
+Benefits:
+
+1. **Better CPU utilization**
+2. **Parallel task execution**
+3. **Improved application performance**
+4. **Responsive applications**
+
+Example:
+
+* Web servers
+* Microservices
+* Real-time data processing
+* Background jobs
+
+---
+
+# 3. How to Create Threads in Java
+
+There are **two main ways**.
+
+---
+
+## Method 1 — Extending Thread class
+
+```java
+class MyThread extends Thread {
+
+    public void run() {
+        System.out.println("Thread is running...");
+    }
+
+}
+
+public class Test {
+    public static void main(String[] args) {
+
+        MyThread t1 = new MyThread();
+        t1.start();
+
+    }
+}
+```
+
+Important:
+
+```
+start() → creates new thread
+run() → thread execution logic
+```
+
+---
+
+## Method 2 — Implementing Runnable (Best Practice)
+
+```java
+class MyTask implements Runnable {
+
+    public void run() {
+        System.out.println("Thread running...");
+    }
+
+}
+
+public class Test {
+
+    public static void main(String[] args) {
+
+        Thread t1 = new Thread(new MyTask());
+        t1.start();
+
+    }
+
+}
+```
+
+Why preferred?
+
+* Java supports **multiple interfaces**
+* Better **design practice**
+
+---
+
+# 4. Thread Lifecycle
+
+Thread goes through multiple states:
+
+```
+NEW
+↓
+RUNNABLE
+↓
+RUNNING
+↓
+BLOCKED / WAITING
+↓
+TERMINATED
+```
+
+Example:
+
+* waiting for DB
+* waiting for lock
+* sleeping thread
+
+---
+
+# 5. Important Multithreading Concepts
+
+### 1️⃣ Synchronization
+
+Used to **avoid race conditions**.
+
+Example problem:
+
+Two threads updating same account balance.
+
+```java
+synchronized void withdraw() {
+   balance = balance - 100;
+}
+```
+
+Ensures **only one thread accesses at a time**.
+
+---
+
+### 2️⃣ Executor Framework (Very Important)
+
+Instead of manually creating threads, we use **Thread Pools**.
+
+Example:
+
+```java
+ExecutorService executor = Executors.newFixedThreadPool(5);
+
+executor.submit(() -> {
+    System.out.println("Task running in thread pool");
+});
+```
+
+Benefits:
+
+* Better performance
+* Thread reuse
+* Resource management
+
+---
+
+# 6. Multithreading in Spring Boot Microservices
+
+Now let's see **real-world usage**.
+
+---
+
+# 1️⃣ Handling Multiple HTTP Requests
+
+Every request in **Spring Boot REST API** runs in **separate thread**.
+
+Example:
+
+Client requests
+
+```
+Request1 -> Thread1
+Request2 -> Thread2
+Request3 -> Thread3
+```
+
+Example:
+
+```
+User1 → /order
+User2 → /product
+User3 → /payment
+```
+
+All handled **concurrently**.
+
+Spring Boot uses **Tomcat thread pool** internally.
+
+---
+
+# 2️⃣ Asynchronous Processing (@Async)
+
+Used when a task **should run in background**.
+
+Example:
+
+* Sending email
+* Generating report
+* Payment processing
+
+Example:
+
+```
+User registers
+↓
+Save user
+↓
+Send email (background)
+```
+
+### Implementation
+
+Enable async:
+
+```java
+@EnableAsync
+```
+
+Service:
+
+```java
+@Async
+public void sendEmail(String email) {
+
+    System.out.println("Sending email...");
+
+}
+```
+
+Now this runs **in another thread**.
+
+---
+
+# 3️⃣ Parallel API Calls
+
+In microservices architecture we often call **multiple services**.
+
+Example:
+
+Order service calling:
+
+* Product service
+* Payment service
+* Inventory service
+
+Instead of sequential:
+
+```
+Product → Payment → Inventory
+```
+
+We run parallel:
+
+```
+Thread1 → Product
+Thread2 → Payment
+Thread3 → Inventory
+```
+
+Example using **CompletableFuture**.
+
+```java
+CompletableFuture<Product> product =
+        CompletableFuture.supplyAsync(() -> productService.getProduct());
+
+CompletableFuture<Payment> payment =
+        CompletableFuture.supplyAsync(() -> paymentService.getPayment());
+
+CompletableFuture.allOf(product, payment).join();
+```
+
+Result:
+
+⚡ Faster response.
+
+---
+
+# 4️⃣ Background Jobs
+
+Used for:
+
+* Data processing
+* Report generation
+* Log analysis
+
+Example:
+
+```
+Process 1 million transactions
+```
+
+Using **Thread Pool**
+
+```java
+ExecutorService executor = Executors.newFixedThreadPool(10);
+
+for(Transaction t : transactions){
+
+   executor.submit(() -> processTransaction(t));
+
+}
+```
+
+---
+
+# 5️⃣ Kafka Consumer Processing (Your Preferred Approach)
+
+Since you mentioned you prefer **Kafka for event-driven microservices**.
+
+When a message arrives:
+
+```
+Kafka Consumer
+      ↓
+Multiple threads process messages
+```
+
+Example:
+
+```
+OrderCreated Event
+↓
+Thread1 → Update inventory
+Thread2 → Send notification
+Thread3 → Update analytics
+```
+
+This improves **throughput**.
+
+---
+
+# 7. Multithreading Problems
+
+Important for interviews.
+
+### Race Condition
+
+Two threads modifying same data.
+
+Example:
+
+```
+balance = 1000
+
+Thread1 withdraws
+Thread2 withdraws
+```
+
+Wrong result possible.
+
+Solution:
+
+* synchronization
+* locks
+
+---
+
+### Deadlock
+
+Two threads waiting for each other.
+
+Example:
+
+```
+Thread1 → lock A → waiting for B
+Thread2 → lock B → waiting for A
+```
+
+Application freezes.
+
+---
+
+### Thread Starvation
+
+Thread never gets CPU time.
+
+---
+
+# 8. Best Practices in Spring Boot
+
+1️⃣ Use **ExecutorService instead of raw threads**
+
+2️⃣ Use **CompletableFuture for async tasks**
+
+3️⃣ Configure **Thread Pool**
+
+Example:
+
+```java
+@Bean
+public Executor taskExecutor() {
+
+    ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+    executor.setCorePoolSize(5);
+    executor.setMaxPoolSize(10);
+    executor.initialize();
+
+    return executor;
+}
+```
+
+---
+
+# 9. Interview Answer (Short Version)
+
+If interviewer asks:
+
+**Where did you use multithreading in Spring Boot?**
+
+Answer:
+
+> In Spring Boot microservices multithreading is used to handle concurrent HTTP requests using the server thread pool. We also use asynchronous processing using @Async and CompletableFuture for background tasks such as sending emails, processing events, and calling multiple microservices in parallel. Additionally, thread pools and executor framework are used for batch processing and Kafka consumer message processing to improve performance and scalability.
+
+---
+
+✅ If you want, I can also explain a **VERY IMPORTANT interview topic** next:
+
+**Java Multithreading Interview Questions in Spring Boot Microservices**
+
+Example:
+
+* Difference between **Runnable vs Callable**
+* **Future vs CompletableFuture**
+* **ThreadPool vs ForkJoinPool**
+* **Parallel Streams vs CompletableFuture**
+* **@Async vs Kafka**
+
+These are **very commonly asked in Java interviews now.** 🚀
+
+
+## **Conversation**
+
+### Chat : can you give some java multi-threading coding problems for interviews
+
+Here are some Java multi-threading coding problems commonly asked in interviews, designed to test various aspects of your understanding:
+
+---
+
+### 1. **Print Even and Odd Numbers Using Two Threads**
+
+Write a program where two threads print even and odd numbers in sequence up to `N`.
+Example: For `N = 10`, output should be:
+
+```
+Thread-1: 1
+Thread-2: 2
+Thread-1: 3
+Thread-2: 4
+...
+```
+
+---
+
+### 2. **Implement a Producer-Consumer Problem**
+
+Use a shared queue and implement the producer-consumer pattern with synchronization.
+
+* Producers add elements to the queue.
+* Consumers remove elements from the queue.
+* Ensure proper handling of empty and full queues using `wait()` and `notify()`.
+
+---
+
+### 3. **Deadlock Simulation**
+
+Write a program to demonstrate a deadlock scenario. Create two threads, where each tries to acquire two locks in a way that causes a deadlock.
+
+* Also, explain how to prevent deadlock in the program.
+
+---
+
+### 4. **Reentrancy Test**
+
+Create a program to demonstrate reentrancy in locks using `ReentrantLock`.
+Example: Write a recursive function where a thread calls a synchronized method repeatedly.
+
+---
+
+### 5. **Thread-safe Singleton**
+
+Implement a thread-safe singleton class in Java using different techniques:
+
+* Double-checked locking
+* Bill Pugh Singleton Design
+
+---
+
+### 6. **Read-Write Lock Implementation**
+
+Simulate a read-write lock:
+
+* Multiple threads can read simultaneously.
+* Only one thread can write at a time, and no reading is allowed during a write.
+
+---
+
+### 7. **Count Down Latch**
+
+Write a program to demonstrate the use of `CountDownLatch`.
+
+* A task should wait until a set of other threads complete their execution.
+
+---
+
+### 8. **CyclicBarrier Example**
+
+Simulate a scenario where a set of threads wait for each other at a common barrier point before proceeding.
+Example: A racing game where all participants wait until everyone is ready to start.
+
+---
+
+### 9. **Blocking Queue Implementation**
+
+Implement a thread-safe blocking queue with methods `put()` and `take()`. Use `wait()` and `notifyAll()` to synchronize the queue.
+
+---
+
+### 10. **Thread-safe Counter**
+
+Write a program to implement a thread-safe counter:
+
+* Using `synchronized`.
+* Using `AtomicInteger`.
+
+---
+
+### 11. **Thread Interleaving Issue**
+
+Create two threads that print a shared counter value. Fix interleaving issues by synchronizing the code block.
+
+---
+
+### 12. **Dining Philosophers Problem**
+
+Implement the dining philosophers problem using threads and synchronization to avoid deadlock and starvation.
+
+---
+
+### 13. **Thread Pool Implementation**
+
+Implement a basic thread pool executor that:
+
+* Maintains a fixed number of threads.
+* Executes submitted tasks.
+* Shuts down gracefully.
+
+---
+
+### 14. **FizzBuzz Multithreaded**
+
+Implement the FizzBuzz problem with four threads:
+
+* One thread prints "Fizz" for multiples of 3.
+* Another prints "Buzz" for multiples of 5.
+* A third prints "FizzBuzz" for multiples of 15.
+* The last thread prints numbers not divisible by 3 or 5.
+
+---
+
+### 15. **Printing in Sequence Using Multiple Threads**
+
+Given `N` threads, make them print numbers sequentially from 1 to `M` in a circular fashion.
+Example: For 3 threads and `M = 10`, output should be:
+
+```
+Thread-1: 1
+Thread-2: 2
+Thread-3: 3
+Thread-1: 4
+Thread-2: 5
+...
+```
+
+---
+
+Let me know if you'd like solutions or detailed explanations for any of these!
+
+
+### Chat : 
+" 1\. **Print Even and Odd Numbers Using Two Threads** " in detail ?
+
+### Ans : 
+### Problem: Print Even and Odd Numbers Using Two Threads
+
+**Objective**: Write a program where two threads print even and odd numbers in sequence up to a given number `N`.
+
+---
+
+### Problem Breakdown
+
+* **Two Threads**: One thread will print even numbers, and the other thread will print odd numbers.
+* **Synchronization**: We need to make sure the numbers are printed alternately by the threads (i.e., odd and even numbers in sequence).
+* **Input**: The number `N` will define the upper limit up to which the threads will print numbers.
+* **Output**: The sequence of numbers will be printed in alternating order: `1 2 3 4 5 6...`
+
+---
+
+### Approach
+
+1. **Create two threads**: One for printing odd numbers and the other for printing even numbers.
+2. **Synchronize the threads**: We can use a shared object to synchronize access between the two threads, ensuring that the threads print alternately.
+3. **Use a shared counter**: The counter will keep track of the current number to be printed.
+4. **Condition Variables**: Use `wait()` and `notify()` methods for synchronizing the threads.
+
+   * The **odd-number thread** will wait until the number is odd and then notify the even-number thread to proceed.
+   * The **even-number thread** will wait until the number is even and then notify the odd-number thread to proceed.
+
+---
+
+### Solution
+
+```java
+class EvenOddPrinter {
+    private int counter = 1;
+    private final int N;
+
+    public EvenOddPrinter(int N) {
+        this.N = N;
+    }
+
+    // Method to print odd numbers
+    public synchronized void printOdd() {
+        while (counter <= N) {
+            if (counter % 2 != 0) {  // If counter is odd
+                System.out.println(Thread.currentThread().getName() + ": " + counter);
+                counter++;
+                notify();  // Notify other thread to proceed
+            } else {
+                try {
+                    wait();  // Wait if the number is not odd
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+        }
+    }
+
+    // Method to print even numbers
+    public synchronized void printEven() {
+        while (counter <= N) {
+            if (counter % 2 == 0) {  // If counter is even
+                System.out.println(Thread.currentThread().getName() + ": " + counter);
+                counter++;
+                notify();  // Notify other thread to proceed
+            } else {
+                try {
+                    wait();  // Wait if the number is not even
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+        }
+    }
+}
+
+public class EvenOdd {
+    public static void main(String[] args) {
+        int N = 10;  // Define the upper limit
+
+        EvenOddPrinter printer = new EvenOddPrinter(N);
+
+        // Create two threads for odd and even printing
+        Thread oddThread = new Thread(() -> printer.printOdd(), "Odd Thread");
+        Thread evenThread = new Thread(() -> printer.printEven(), "Even Thread");
+
+        // Start the threads
+        oddThread.start();
+        evenThread.start();
+    }
+}
+```
+
+---
+
+### Explanation
+
+1. **Class EvenOddPrinter**:
+
+   * This class contains the `counter` variable to keep track of the current number.
+   * The `printOdd()` and `printEven()` methods are synchronized, ensuring that only one thread can execute at a time.
+   * The `while (counter <= N)` loop keeps the printing process going until the `counter` exceeds `N`.
+   * `wait()` is used to block a thread when it's not its turn (i.e., the counter is not the number it is supposed to print).
+   * `notify()` is used to wake up the other thread, allowing it to print the next number.
+2. **Threads**:
+
+   * **Odd Thread**: It prints odd numbers and waits for the even thread to print an even number before continuing.
+   * **Even Thread**: It prints even numbers and waits for the odd thread to print an odd number before continuing.
+3. **Synchronization**:
+
+   * The synchronization is done on the `EvenOddPrinter` object, meaning that only one thread can access either of the print methods at any given time.
+4. **Thread Execution**:
+
+   * The `oddThread` prints odd numbers, while the `evenThread` prints even numbers. They both alternate, with each thread printing its number and notifying the other to continue.
+
+---
+
+### Sample Output (For N = 10):
+
+```
+Odd Thread: 1
+Even Thread: 2
+Odd Thread: 3
+Even Thread: 4
+Odd Thread: 5
+Even Thread: 6
+Odd Thread: 7
+Even Thread: 8
+Odd Thread: 9
+Even Thread: 10
+```
+
+---
+
+### Notes:
+
+* **Thread Synchronization**: Proper synchronization ensures the threads alternate correctly and no thread prints an incorrect number (for example, two odd numbers or two even numbers in a row).
+* **Thread Safety**: The use of `synchronized` ensures thread safety when accessing the `counter` variable.
+* **Efficiency**: This approach uses condition-based synchronization (`wait()` and `notify()`) to make sure that the threads don't waste resources when they don't need to execute.
+
+---
+
+Let me know if you need further clarification or additional examples!
+
+
+### Chat : 
+" Let me know if you'd like solutions or detailed explanations for any of these!" 
+
+give solutions and detailed explanations for all the above problems ?
+
+### Ans : 
+That's a great request! I'll provide **detailed explanations and Java solutions** for all the **Java multi-threading interview problems** I listed earlier. Given that this is a long and detailed topic, I'll start with a few problems and their solutions, then continue adding more in subsequent responses.
+
+---
+
+## **1. Print Even and Odd Numbers Using Two Threads**
+
+### **Problem Statement**
+
+* Two threads must print numbers in sequence up to `N`.
+* **Thread-1** should print odd numbers.
+* **Thread-2** should print even numbers.
+* The output should be **alternating**, e.g.,
+
+  ```
+  Thread-1: 1
+  Thread-2: 2
+  Thread-1: 3
+  Thread-2: 4
+  ```
+
+### **Solution Using wait() and notify()**
+
+```java
+class EvenOddPrinter {
+    private int counter = 1;
+    private final int N;
+
+    public EvenOddPrinter(int N) {
+        this.N = N;
+    }
+
+    public synchronized void printOdd() {
+        while (counter <= N) {
+            while (counter % 2 == 0) {  // Wait if it's not odd
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+            System.out.println(Thread.currentThread().getName() + ": " + counter);
+            counter++;
+            notify();
+        }
+    }
+
+    public synchronized void printEven() {
+        while (counter <= N) {
+            while (counter % 2 != 0) {  // Wait if it's not even
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            }
+            System.out.println(Thread.currentThread().getName() + ": " + counter);
+            counter++;
+            notify();
+        }
+    }
+}
+
+public class EvenOdd {
+    public static void main(String[] args) {
+        int N = 10;
+        EvenOddPrinter printer = new EvenOddPrinter(N);
+
+        Thread oddThread = new Thread(() -> printer.printOdd(), "Odd Thread");
+        Thread evenThread = new Thread(() -> printer.printEven(), "Even Thread");
+
+        oddThread.start();
+        evenThread.start();
+    }
+}
+```
+
+### **Explanation**
+
+* **`wait()`**: When one thread is printing, the other waits.
+* **`notify()`**: After printing, the current thread notifies the other to resume.
+* **Alternation**: Odd and even numbers are printed alternately.
+
+---
+
+## **2. Producer-Consumer Problem Using BlockingQueue**
+
+### **Problem Statement**
+
+* A **Producer** should add items to a queue.
+* A **Consumer** should remove items from the queue.
+* The queue has a limited capacity.
+* We must handle synchronization properly.
+
+### **Solution Using BlockingQueue**
+
+```java
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+
+class Producer implements Runnable {
+    private BlockingQueue<Integer> queue;
+
+    public Producer(BlockingQueue<Integer> queue) {
+        this.queue = queue;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 1; i <= 10; i++) {
+            try {
+                System.out.println("Produced: " + i);
+                queue.put(i);  // Adds item to the queue (blocks if full)
+                Thread.sleep(500); 
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+    }
+}
+
+class Consumer implements Runnable {
+    private BlockingQueue<Integer> queue;
+
+    public Consumer(BlockingQueue<Integer> queue) {
+        this.queue = queue;
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            try {
+                int value = queue.take();  // Removes item from queue (blocks if empty)
+                System.out.println("Consumed: " + value);
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+    }
+}
+
+public class ProducerConsumer {
+    public static void main(String[] args) {
+        BlockingQueue<Integer> queue = new LinkedBlockingQueue<>(5);
+
+        Thread producer = new Thread(new Producer(queue));
+        Thread consumer = new Thread(new Consumer(queue));
+
+        producer.start();
+        consumer.start();
+    }
+}
+```
+
+### **Explanation**
+
+* **BlockingQueue** automatically handles synchronization.
+* **put()** waits if the queue is full.
+* **take()** waits if the queue is empty.
+* The consumer runs indefinitely to simulate real-world scenarios.
+
+---
+
+## **3. Deadlock Simulation**
+
+### **Problem Statement**
+
+* Two threads try to **acquire two locks** but in a different order, causing **deadlock**.
+* Example:
+
+  * **Thread A**: Locks `lock1` → waits for `lock2`.
+  * **Thread B**: Locks `lock2` → waits for `lock1`.
+* This causes **circular waiting**.
+
+### **Deadlock Code**
+
+```java
+class DeadlockExample {
+    private static final Object lock1 = new Object();
+    private static final Object lock2 = new Object();
+
+    public static void main(String[] args) {
+        Thread thread1 = new Thread(() -> {
+            synchronized (lock1) {
+                System.out.println("Thread 1: Holding lock1...");
+                try { Thread.sleep(100); } catch (InterruptedException e) {}
+                synchronized (lock2) {
+                    System.out.println("Thread 1: Holding lock2...");
+                }
+            }
+        });
+
+        Thread thread2 = new Thread(() -> {
+            synchronized (lock2) {
+                System.out.println("Thread 2: Holding lock2...");
+                try { Thread.sleep(100); } catch (InterruptedException e) {}
+                synchronized (lock1) {
+                    System.out.println("Thread 2: Holding lock1...");
+                }
+            }
+        });
+
+        thread1.start();
+        thread2.start();
+    }
+}
+```
+
+### **Explanation**
+
+* **Deadlock occurs** when both threads hold one lock and wait for the other.
+* **Solution**: Always **acquire locks in a fixed order**.
+
+---
+
+## **4. Thread-Safe Singleton**
+
+### **Problem Statement**
+
+* Implement a **singleton class** that is **thread-safe**.
+
+### **Solution Using Double-Checked Locking**
+
+```java
+class Singleton {
+    private static volatile Singleton instance;
+
+    private Singleton() {}  // Private constructor to prevent instantiation
+
+    public static Singleton getInstance() {
+        if (instance == null) { 
+            synchronized (Singleton.class) { 
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+
+public class SingletonDemo {
+    public static void main(String[] args) {
+        Singleton s1 = Singleton.getInstance();
+        Singleton s2 = Singleton.getInstance();
+        System.out.println(s1 == s2);  // Output: true (both refer to same instance)
+    }
+}
+```
+
+### **Explanation**
+
+* **Double-checked locking** improves performance.
+* **`volatile` keyword** ensures changes are visible across threads.
+
+---
+
+## **What Next?**
+
+There are **11 more problems** to go! Let me know if you want me to continue, or if you'd like me to focus on specific ones first! 🚀
+
