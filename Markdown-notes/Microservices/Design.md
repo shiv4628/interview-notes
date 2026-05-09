@@ -2409,7 +2409,3 @@ These patterns deal with the interaction between objects, focusing on communicat
 
 Let me know if you'd like examples of specific patterns!
 
-
-
-
-
