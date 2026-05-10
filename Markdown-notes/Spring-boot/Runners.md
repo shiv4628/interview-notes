@@ -1,5 +1,13 @@
+# Table of Contents
+
+- [Chat : spring boot runners, can you explain in detail](#spring-boot-runners-can-you-explain-in-detail)
+- [Chat : can you explain in context of my ecommerce spring boot microservice application](#can-you-explain-in-context-of-my-ecommerce-spring-boot-microservice-application)
+- [Chat : "command-line arguments" what is basically this command-line arguments?](#command-line-arguments-what-is-basically-this-command-line-arguments)
+- [Chat : "Why Are Command-Line Arguments Useful in Spring Boot? " explain this also](#why-are-command-line-arguments-useful-in-spring-boot-explain-this-also)
+
 ## **Conversation**
 
+<a id="spring-boot-runners-can-you-explain-in-detail"></a>
 ### Chat : spring boot runners, can you explain in detail
 
 In Spring Boot, runners are a way to execute code at application startup. They are interfaces that allow you to run specific logic right after the Spring application has started and the ApplicationContext has been initialized. Spring Boot provides two main types of runners:
@@ -121,6 +129,7 @@ With `@Order`, you can set the priority, with lower values running first.
 Spring Boot runners are powerful tools for custom initialization and help to modularize startup tasks.
 
 
+<a id="can-you-explain-in-context-of-my-ecommerce-spring-boot-microservice-application"></a>
 ### Chat : can you explain in context of my ecommerce spring boot microservice application
 
 Since you have experience working on an **e-commerce Spring Boot microservice application**, let’s discuss how `CommandLineRunner` and `ApplicationRunner` can be useful in that context.
@@ -350,6 +359,7 @@ In your **e-commerce Spring Boot microservices**, `CommandLineRunner` and `Appli
 Would you like me to help implement a specific startup task in your application? 🚀
 
 
+<a id="command-line-arguments-what-is-basically-this-command-line-arguments"></a>
 ### Chat : "command-line arguments" what is basically this command-line arguments?
 
 ### **What Are Command-Line Arguments?**
@@ -478,6 +488,7 @@ Environment: [prod]
 Would you like to see how to read them inside a Spring Boot REST API? 🚀
 
 
+<a id="why-are-command-line-arguments-useful-in-spring-boot-explain-this-also"></a>
 ### Chat : "Why Are Command-Line Arguments Useful in Spring Boot? " explain this also
 
 ### **Why Are Command-Line Arguments Useful in Spring Boot?**

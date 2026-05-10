@@ -1,5 +1,16 @@
+# Table of Contents
+
+- [Chat : can you create a flow diagram from spring boot security?](#can-you-create-a-flow-diagram-from-spring-boot-security)
+- [Chat : * **Exact method call sequence** * 📌 **Filter order explanation** these 2, explain in more detail](#exact-method-call-sequence-filter-order-explanation-these-2-explain-in-more-detail)
+- [Chat : Why AuthenticationManager is not needed in JW ?](#why-authenticationmanager-is-not-needed-in-jw)
+- [Chat : Security filters may modify the response (e.g., adding security headers).](#security-filters-may-modify-the-response-e-g-adding-security-headers)
+- [Chat : Security filters may modify the response (e.g., adding security headers).](#security-filters-may-modify-the-response-e-g-adding-security-headers-1)
+- [Chat : can you explain me login and registration functionality in case of a spring boot angular microservice application](#can-you-explain-me-login-and-registration-functionality-in-case-of-a-spring-boot-angular-microservice-application)
+- [Chat : can you focus more on angular side?](#can-you-focus-more-on-angular-side)
+
 ## **Conversation 1**
 
+<a id="can-you-create-a-flow-diagram-from-spring-boot-security"></a>
 ### Chat : can you create a flow diagram from spring boot security?
 
 Yes 👍
@@ -160,6 +171,7 @@ If you want next:
 Just tell me 👍
 
 
+<a id="exact-method-call-sequence-filter-order-explanation-these-2-explain-in-more-detail"></a>
 ### Chat : * **Exact method call sequence** * 📌 **Filter order explanation** these 2, explain in more detail
 
 Perfect — let’s go **deep but structured**, exactly on these two 👇
@@ -533,6 +545,7 @@ If you want next:
 Just say the word 💯
 
 
+<a id="why-authenticationmanager-is-not-needed-in-jw"></a>
 ### Chat : Why AuthenticationManager is not needed in JW ?
 
 Got it 👍
@@ -759,6 +772,7 @@ Just tell me 👌
 
 ## **Conversation **
 
+<a id="security-filters-may-modify-the-response-e-g-adding-security-headers"></a>
 ### Chat : Security filters may modify the response (e.g., adding security headers).
 
 Yes, that statement is correct. Let’s break it down:
@@ -812,6 +826,7 @@ Yes — security filters *can and often do* modify the response. This is typical
 
 ## **Conversation **
 
+<a id="security-filters-may-modify-the-response-e-g-adding-security-headers-1"></a>
 ### Chat : Security filters may modify the response (e.g., adding security headers).
 
 Secured communication in a web application ensures data confidentiality, integrity, and authentication between the client (browser) and the server. It involves multiple security mechanisms, including encryption, authentication, and secure transmission protocols. Here’s how it works:
@@ -876,6 +891,7 @@ Would you like a deeper dive into any specific area? 🚀
 
 ## **Conversation **
 
+<a id="can-you-explain-me-login-and-registration-functionality-in-case-of-a-spring-boot-angular-microservice-application"></a>
 ### Chat : can you explain me login and registration functionality in case of a spring boot angular microservice application
 
 Sure! In a **Spring Boot + Angular** microservices application, the **login and registration** functionality follows a structured approach using **JWT authentication** and **Spring Security**. Here’s how it works:
@@ -1216,6 +1232,7 @@ export class RegisterComponent {
 Would you like help integrating this with **Spring Cloud Gateway** or **Kafka for event-driven authentication**? 🚀
 
 
+<a id="can-you-focus-more-on-angular-side"></a>
 ### Chat : can you focus more on angular side?
 
 Got it! Let’s focus on implementing **login and registration** in **Angular** while integrating it with a Spring Boot backend.

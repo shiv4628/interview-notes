@@ -1,5 +1,21 @@
+# Table of Contents
+
+- [Chat : Pagination and sorting in spring boot application](#pagination-and-sorting-in-spring-boot-application)
+- [Chat : Yes I want some more advanced example such as integration with a front end and adding filters](#yes-i-want-some-more-advanced-example-such-as-integration-with-a-front-end-and-adding-filters)
+- [Chat : How can we use custom queries](#how-can-we-use-custom-queries)
+- [Chat : Chat](#chat)
+- [Chat : Chat](#chat-1)
+- [Chat : Chat](#chat-2)
+- [Chat : so basically which one is recommended?](#so-basically-which-one-is-recommended)
+- [Chat : yes please](#yes-please)
+- [Chat : can we go with hybrid approach also?](#can-we-go-with-hybrid-approach-also)
+- [Chat : how to implement in spring boot with hybrid approach?](#how-to-implement-in-spring-boot-with-hybrid-approach)
+- [Chat : how can we implement search functionality in spring boot app using mongoDB, also include pagination and filtering](#how-can-we-implement-search-functionality-in-spring-boot-app-using-mongodb-also-include-pagination-and-filtering)
+- [Chat : what is MongoTemplate ?](#what-is-mongotemplate)
+
 ## **Conversation**
 
+<a id="pagination-and-sorting-in-spring-boot-application"></a>
 ### Chat : Pagination and sorting in spring boot application 
 
 Pagination and sorting are commonly used in Spring Boot applications to handle large datasets effectively. You can implement them using **Spring Data JPA** and the `Pageable` and `Sort` interfaces. Here's how you can do it:
@@ -145,6 +161,7 @@ The response includes both the data and metadata about pagination:
 Would you like a more advanced example, such as integrating with a frontend or adding custom filters?
 
 
+<a id="yes-i-want-some-more-advanced-example-such-as-integration-with-a-front-end-and-adding-filters"></a>
 ### Chat : Yes I want some more advanced example such as integration with a front end and adding filters
 
 To build a more advanced Spring Boot application with **pagination**, **sorting**, and **filters**, and integrate it with a **frontend**, here's how you can proceed:
@@ -401,6 +418,7 @@ export default ProductList;
 Would you like details about implementing any of these additional features?
 
 
+<a id="how-can-we-use-custom-queries"></a>
 ### Chat : How can we use custom queries 
 
 In **Spring Data JPA**, you can define **custom queries** using the `@Query` annotation or by implementing custom repository methods. Here's a detailed guide to using custom queries in your Spring Boot application:
@@ -624,6 +642,7 @@ List<Product> searchProductsByKeyword(@Param("keyword") String keyword);
 Would you like to explore any of these examples further?
 
 
+<a id="chat"></a>
 ### Chat :
 public static Specification<Product> hasCategory(String category) { return (root, query, criteriaBuilder) -> category == null ? null : criteriaBuilder.equal(root.get("category"), category); }
 
@@ -746,6 +765,7 @@ AND price BETWEEN 100.0 AND 500.0;
 Would you like me to show how to combine this with another filter or explain the `criteriaBuilder` object further?
 
 
+<a id="chat-1"></a>
 ### Chat : 
 " 2\. **Frontend Integration** "
 
@@ -1046,6 +1066,7 @@ export class AppRoutingModule {}
 Let me know if you'd like additional enhancements, such as better styling, JWT authentication, or exporting data!
 
 
+<a id="chat-2"></a>
 ### Chat : 
 " C. **Controller with Query Parameters** "
 
@@ -1264,6 +1285,7 @@ No changes are required in `product-list.component.html`. It remains the same.
 Let me know if you want further improvements like caching, infinite scrolling, or JWT authentication! 🚀
 
 
+<a id="so-basically-which-one-is-recommended"></a>
 ### Chat : so basically which one is recommended?
 
 ### **GET vs. POST for Pagination, Sorting, and Filtering**
@@ -1331,6 +1353,7 @@ You can support **both** and let the frontend decide!
 Let me know if you want help implementing both approaches! 🚀
 
 
+<a id="yes-please"></a>
 ### Chat : yes please
 
 Great! Let's implement a **hybrid approach** where your Spring Boot backend supports **both GET and POST** for fetching products:
@@ -1495,6 +1518,7 @@ fetchProducts(): void {
 Would you like a GitHub-ready project example for this full-stack setup?
 
 
+<a id="can-we-go-with-hybrid-approach-also"></a>
 ### Chat : can we go with hybrid approach also?
 
 Yes, absolutely — a **hybrid approach** is not only possible but also a **recommended architectural practice** when your application needs to support both:
@@ -1613,6 +1637,7 @@ fetchProducts(): void {
 Let me know — I can generate or share code structure for that.
 
 
+<a id="how-to-implement-in-spring-boot-with-hybrid-approach"></a>
 ### Chat : how to implement in spring boot with hybrid approach?
 
 To implement a **hybrid approach in Spring Boot** (supporting both GET and POST for pagination, sorting, and filtering), follow these steps:
@@ -1796,6 +1821,7 @@ Let me know what you'd like next!
 
 ## **Conversation**
 
+<a id="how-can-we-implement-search-functionality-in-spring-boot-app-using-mongodb-also-include-pagination-and-filtering"></a>
 ### Chat : how can we implement search functionality in spring boot app using mongoDB, also include pagination and filtering
 
 To implement search functionality in a **Spring Boot** application using **MongoDB**, along with pagination and filtering, follow these steps:
@@ -1994,6 +2020,7 @@ GET http://localhost:8080/products/search?name=phone&category=electronics&minPri
 Would you like me to add sorting as well? 🚀
 
 
+<a id="what-is-mongotemplate"></a>
 ### Chat : what is MongoTemplate ?
 
 ### **What is `MongoTemplate` in Spring Boot?**

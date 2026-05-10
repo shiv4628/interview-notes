@@ -1,5 +1,12 @@
+# Table of Contents
+
+- [Chat : what is spring boot actuators](#what-is-spring-boot-actuators)
+- [Chat : can you explain in detail how to use actuators](#can-you-explain-in-detail-how-to-use-actuators)
+- [Chat : what are spring boot actuator visualization tools](#what-are-spring-boot-actuator-visualization-tools)
+
 ## **Conversation**
 
+<a id="what-is-spring-boot-actuators"></a>
 ### Chat : what is spring boot actuators
 
 Spring Boot Actuators are a set of built-in tools and endpoints provided by the Spring Boot framework that help monitor and manage Spring Boot applications. Actuators offer insight into the internal state of the application and can provide metrics, health checks, and other useful information for maintaining and troubleshooting applications in production.
@@ -36,6 +43,7 @@ Here’s a sample dependency inclusion in Maven:
 Spring Boot also allows developers to create custom actuators to expose specific application states or metrics that aren't provided out of the box.
 
 
+<a id="can-you-explain-in-detail-how-to-use-actuators"></a>
 ### Chat : can you explain in detail how to use actuators
 
 Using Spring Boot Actuators involves enabling and configuring specific endpoints to expose application metrics, health checks, and other management capabilities. Here’s a step-by-step guide to using and configuring Spring Boot Actuators in a Spring Boot application.
@@ -223,6 +231,7 @@ Access `/actuator/prometheus` to retrieve metrics in Prometheus-compatible forma
 Spring Boot Actuators simplify monitoring and managing applications and are customizable to fit your specific needs, especially useful for production environments.
 
 
+<a id="what-are-spring-boot-actuator-visualization-tools"></a>
 ### Chat : what are spring boot actuator visualization tools
 
 Spring Boot Actuators offer numerous metrics and data points for monitoring and managing applications, and various visualization tools can help display this information for analysis, performance monitoring, and alerting. Here are some popular Spring Boot Actuator visualization tools:

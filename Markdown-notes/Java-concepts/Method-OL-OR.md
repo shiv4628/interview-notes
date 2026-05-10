@@ -1,5 +1,18 @@
+# Table of Contents
+
+- [Chat : can you explain method overloading and overriding in detail and various ambiguity scenarios cases also](#can-you-explain-method-overloading-and-overriding-in-detail-and-various-ambiguity-scenarios-cases-also)
+- [Chat : "Ambiguity in Overloading" can you give more example in detail](#ambiguity-in-overloading-can-you-give-more-example-in-detail)
+- [Chat : " **Use explicit type casting**: "also explain this point](#use-explicit-type-casting-also-explain-this-point)
+- [Chat : what are the rules of method overloading in case of exception and access modifiers](#what-are-the-rules-of-method-overloading-in-case-of-exception-and-access-modifiers)
+- [Chat : "For example, if the parent method is `public`, the overriding method must also be `public`. "so if the parent method is private can we keep child method as public](#for-example-if-the-parent-method-is-public-the-overriding-method-must-also-be-public-so-if-the-parent-method-is-private-can-we-keep-child-method-as-public)
+- [Chat : what is parent is default or protected](#what-is-parent-is-default-or-protected)
+- [Chat : Method overloading concept](#method-overloading-concept)
+- [Chat : ?](#chat)
+- [Chat : Method overriding thows rules](#method-overriding-thows-rules)
+
 ## **Conversation**
 
+<a id="can-you-explain-method-overloading-and-overriding-in-detail-and-various-ambiguity-scenarios-cases-also"></a>
 ### Chat : can you explain method overloading and overriding in detail and various ambiguity scenarios cases also
 
 ### Method Overloading and Overriding in Java
@@ -145,6 +158,7 @@ Covariant return types allow an overridden method to return a subtype of the ret
 If you have specific ambiguity scenarios in mind, let me know, and I can explore them further.
 
 
+<a id="ambiguity-in-overloading-can-you-give-more-example-in-detail"></a>
 ### Chat : "Ambiguity in Overloading" can you give more example in detail
 
 Ambiguity in **method overloading** arises when the compiler cannot decide which overloaded method to invoke due to multiple possibilities that match the call. Let's explore this in detail with examples of different ambiguity scenarios:
@@ -346,6 +360,7 @@ To avoid ambiguity:
 Would you like further clarification or examples on any of these cases?
 
 
+<a id="use-explicit-type-casting-also-explain-this-point"></a>
 ### Chat : " **Use explicit type casting**: "also explain this point
 
 ### **Using Explicit Type Casting to Resolve Ambiguity**
@@ -502,6 +517,7 @@ class ExplicitCastingNull {
 If you'd like, I can explain more specific examples or edge cases where explicit casting plays a critical role.
 
 
+<a id="what-are-the-rules-of-method-overloading-in-case-of-exception-and-access-modifiers"></a>
 ### Chat : what are the rules of method overloading in case of exception and access modifiers
 
 In Java, method overloading primarily focuses on method signatures (method name and parameters) and is unrelated to return type, access modifiers, or exceptions. However, there are rules and considerations regarding **access modifiers** and **exceptions** in method overloading:
@@ -633,6 +649,7 @@ In contrast, for **overloading**, there are **no such restrictions** on access m
 If you want examples of specific scenarios or edge cases, let me know!
 
 
+<a id="for-example-if-the-parent-method-is-public-the-overriding-method-must-also-be-public-so-if-the-parent-method-is-private-can-we-keep-child-method-as-public"></a>
 ### Chat : "For example, if the parent method is `public`, the overriding method must also be `public`. "so if the parent method is private can we keep child method as public
 
 If the parent method is **private**, it is not visible to the child class. As a result:
@@ -690,6 +707,7 @@ When a method in the child class has the same name and parameters as a private m
 Let me know if you'd like further clarification or deeper examples!
 
 
+<a id="what-is-parent-is-default-or-protected"></a>
 ### Chat : what is parent is default or protected
 
 If a **parent method** is marked as **default** (package-private) or **protected**, the rules for overriding in the child class are as follows:
@@ -863,6 +881,7 @@ Let me know if you'd like further clarification or more examples!
 
 ## **Conversation**
 
+<a id="method-overloading-concept"></a>
 ### Chat : Method overloading concept 
 
 **Method Overloading** is a concept in object-oriented programming (OOP), particularly in Java, where multiple methods in the same class have the same name but different parameter lists. It allows methods to perform similar functionalities with variations in input types or number of arguments.
@@ -932,6 +951,8 @@ public class Calculator {
 3. You can overload methods within the same class or between parent and child classes.
 
 
+<a id=""></a>
+<a id="chat"></a>
 ### Chat : ?
 
 In the provided code, the `sum` method is overloaded with three different parameter types: `Integer`, `Object`, and `String`. When calling `sum(null)`:
@@ -968,6 +989,7 @@ new SumofNumber().sum((Integer) null); // Calls the Integer version
 ```
 
 
+<a id="method-overriding-thows-rules"></a>
 ### Chat : Method overriding thows rules 
 
 In Java, when you **override** a method, there are specific rules related to the use of `throws` (exceptions). Here's a breakdown of those rules:

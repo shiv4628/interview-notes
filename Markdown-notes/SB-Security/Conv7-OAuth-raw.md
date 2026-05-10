@@ -1,5 +1,19 @@
+# Table of Contents
+
+- [Chat : what is spring boot oauth2?](#what-is-spring-boot-oauth2)
+- [Chat : what is oauth2.0 with JWT?](#what-is-oauth2-0-with-jwt)
+- [Chat : A **JWT + OAuth2** flow diagram ?](#a-jwt-oauth2-flow-diagram)
+- [Chat : I don't understand, where is keycloak in context of oauth2.0?](#i-don-t-understand-where-is-keycloak-in-context-of-oauth2-0)
+- [Chat : I am still confused, because as you said, oauth2 is used for third party credentials to use for login, like google account, so how come keycloak fits into the picture?](#i-am-still-confused-because-as-you-said-oauth2-is-used-for-third-party-credentials-to-use-for-login-like-google-account-so-how-come-keycloak-fits-into-the-picture)
+- [Chat : **OpenID Connect (OIDC) server**. what is OIDC server actually?](#openid-connect-oidc-server-what-is-oidc-server-actually)
+- [Chat : * A **diagram** of the OIDC login flow? * A **Spring Boot + OIDC** example using Keycloak? please these 2?](#a-diagram-of-the-oidc-login-flow-a-spring-boot-oidc-example-using-keycloak-please-these-2)
+- [Chat : **Act as an OAuth2 client** or **resource server**, or even a full **authorization server** (in older versions). explain this also in detail](#act-as-an-oauth2-client-or-resource-server-or-even-a-full-authorization-server-in-older-versions-explain-this-also-in-detail)
+- [Chat : what is OAuth2 and OpendId connect?](#what-is-oauth2-and-opendid-connect)
+- [Chat : can you create a spring boot microservice application with spring security with oauth2 with jwt](#can-you-create-a-spring-boot-microservice-application-with-spring-security-with-oauth2-with-jwt)
+
 ## **Conversation **
 
+<a id="what-is-spring-boot-oauth2"></a>
 ### Chat : what is spring boot oauth2?
 
 **Spring Boot OAuth2** is a feature of the Spring Security framework that helps you implement **authentication and authorization** in your applications using the **OAuth 2.0 protocol**.
@@ -101,6 +115,7 @@ Let me know if you'd like:
 * Customizing the login flow with user roles or database integration
 
 
+<a id="what-is-oauth2-0-with-jwt"></a>
 ### Chat : what is oauth2.0 with JWT?
 
 **OAuth 2.0 with JWT** is a combination of two powerful concepts used in modern authentication and authorization systems:
@@ -214,6 +229,7 @@ Let me know if you want:
 * Info on **refresh tokens** with JWT
 
 
+<a id="a-jwt-oauth2-flow-diagram"></a>
 ### Chat : A **JWT + OAuth2** flow diagram ?
 
 Here's a clear **OAuth2 + JWT flow diagram** to help you visualize how the system works:
@@ -277,6 +293,7 @@ Here's a clear **OAuth2 + JWT flow diagram** to help you visualize how the syste
 Let me know if you want a **Spring Boot + Keycloak/Auth0 example**, or to understand **refresh token flow** too.
 
 
+<a id="i-don-t-understand-where-is-keycloak-in-context-of-oauth2-0"></a>
 ### Chat : I don't understand, where is keycloak in context of oauth2.0?
 
 Great question! Let's clarify:
@@ -372,6 +389,7 @@ Would you like:
 Let me know!
 
 
+<a id="i-am-still-confused-because-as-you-said-oauth2-is-used-for-third-party-credentials-to-use-for-login-like-google-account-so-how-come-keycloak-fits-into-the-picture"></a>
 ### Chat : I am still confused, because as you said, oauth2 is used for third party credentials to use for login, like google account, so how come keycloak fits into the picture?
 
 You're absolutely right to be confused — this is a **very common misunderstanding**, and I’ll help you sort it out clearly.
@@ -465,6 +483,7 @@ Would you like:
 Let me know how you'd like to go deeper.
 
 
+<a id="openid-connect-oidc-server-what-is-oidc-server-actually"></a>
 ### Chat : **OpenID Connect (OIDC) server**. what is OIDC server actually?
 
 Great question — let’s clear this up once and for all.
@@ -560,6 +579,7 @@ Would you like:
 Let me know!
 
 
+<a id="a-diagram-of-the-oidc-login-flow-a-spring-boot-oidc-example-using-keycloak-please-these-2"></a>
 ### Chat : * A **diagram** of the OIDC login flow? * A **Spring Boot + OIDC** example using Keycloak? please these 2?
 
 Perfect — let’s cover both parts:
@@ -732,6 +752,7 @@ Would you like me to generate:
 
 Let me know!
 
+<a id="act-as-an-oauth2-client-or-resource-server-or-even-a-full-authorization-server-in-older-versions-explain-this-also-in-detail"></a>
 ### Chat : **Act as an OAuth2 client** or **resource server**, or even a full **authorization server** (in older versions). explain this also in detail
 
 Great — let’s break down what that sentence means in detail:
@@ -870,6 +891,7 @@ I can guide you through whichever path you choose.
 
 ## **Conversation **
 
+<a id="what-is-oauth2-and-opendid-connect"></a>
 ### Chat : what is OAuth2 and OpendId connect?
 
 OAuth 2.0 and OpenID Connect (OIDC) are both standards used for authentication and authorization, but they serve different purposes.
@@ -931,6 +953,7 @@ Would you like an example implementation in Spring Boot? 🚀
 
 ## **Conversation **
 
+<a id="can-you-create-a-spring-boot-microservice-application-with-spring-security-with-oauth2-with-jwt"></a>
 ### Chat : can you create a spring boot microservice application with spring security with oauth2 with jwt
 
 Yes, I can guide you through creating a **Spring Boot microservice** application that uses **Spring Security with OAuth2 and JWT** for authentication and authorization.

@@ -1,5 +1,16 @@
+# Table of Contents
+
+- [Chat : spring boot with JWT](#spring-boot-with-jwt)
+- [Chat : "getClaimFromToken(token, Claims::getSubject)" what is this method and where is this present?](#getclaimfromtoken-token-claims-getsubject-what-is-this-method-and-where-is-this-present)
+- [Chat : so basically, what are claims actually?](#so-basically-what-are-claims-actually)
+- [Chat : what does the parsing means?](#what-does-the-parsing-means)
+- [Chat : what is subject?](#what-is-subject)
+- [Chat : "ResponseEntity<?>" what does this ? mean here?](#responseentity-what-does-this-mean-here)
+- [Chat : so ResponseEntity<T> and ResponseEntity<?> are same](#so-responseentity-t-and-responseentity-are-same)
+
 ## **Conversation 1**
 
+<a id="spring-boot-with-jwt"></a>
 ### Chat : spring boot with JWT
 
 Using Spring Boot with JWT (JSON Web Tokens) is a popular approach for securing RESTful APIs. JWT is a compact, URL-safe means of representing claims to be transferred between two parties. It's commonly used for authentication and information exchange in web development. Below are the steps to integrate JWT with Spring Boot:
@@ -252,6 +263,7 @@ Use tools like **Postman** or **curl** to:
 This full setup includes authentication, token generation, and secured endpoints. Let me know if you want more details on any specific part!
 
 
+<a id="getclaimfromtoken-token-claims-getsubject-what-is-this-method-and-where-is-this-present"></a>
 ### Chat : "getClaimFromToken(token, Claims::getSubject)"  what is this method and where is this present?
 
 The method `getClaimFromToken(token, Claims::getSubject)` is used in the **JwtTokenUtil** class to extract a specific claim (piece of information) from a JWT token. Let’s break it down:
@@ -355,6 +367,7 @@ This retrieves the token’s expiration date.
 
 Let me know if you need further clarification! 🚀
 
+<a id="so-basically-what-are-claims-actually"></a>
 ### Chat : so basically, what are claims actually?
 
 ### **What are Claims in JWT?**
@@ -512,6 +525,7 @@ if (jwtTokenUtil.getClaimFromToken(token, Claims::getSubject).equals("john_doe")
 Would you like a hands-on example of creating and verifying JWT claims? 🚀
 
 
+<a id="what-does-the-parsing-means"></a>
 ### Chat : what does the parsing means?
 
 ### **What Does "Parsing" Mean?**
@@ -601,6 +615,7 @@ expiration = Fri Feb 9 12:00:00 IST 2024
 Would you like a full **example of token creation and parsing**? 🚀
 
 
+<a id="what-is-subject"></a>
 ### Chat: what is subject?
 
 ### **What is "Subject" (`sub`) in JWT?**
@@ -696,6 +711,7 @@ User identified as: john_doe
 Would you like to see a **full example** of JWT authentication with subjects? 🚀
 
 
+<a id="responseentity-what-does-this-mean-here"></a>
 ### Chat : "ResponseEntity<?>" what does this ? mean here?
 
 The **`?`** in `ResponseEntity<?>` is a **wildcard type** in Java **generics**, meaning it can represent **any type**.
@@ -764,6 +780,7 @@ This is useful when we **know** the exact return type.
 Would you like a **deeper dive** into Java generics? 🚀
 
 
+<a id="so-responseentity-t-and-responseentity-are-same"></a>
 ### Chat : so ResponseEntity<T> and ResponseEntity<?> are same
 
 ### **Are `ResponseEntity<T>` and `ResponseEntity<?>` the Same?**

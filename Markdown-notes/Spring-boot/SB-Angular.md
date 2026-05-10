@@ -1,5 +1,10 @@
+# Table of Contents
+
+- [Chat : how can we Validate Request Body and Parameter in Spring Boot and angular application](#how-can-we-validate-request-body-and-parameter-in-spring-boot-and-angular-application)
+
 ## **Conversation**
 
+<a id="how-can-we-validate-request-body-and-parameter-in-spring-boot-and-angular-application"></a>
 ### Chat : how can we Validate Request Body and Parameter in Spring Boot and angular application
 
 In a Spring Boot and Angular application, validating request bodies and parameters typically involves:

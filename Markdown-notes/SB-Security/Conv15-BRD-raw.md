@@ -1,5 +1,12 @@
+# Table of Contents
+
+- [Chat : so suppose I want to design or implement a spring security feature for my app, so what are point that I need to consider in context of business requirements or BRD, like what kind of documentation are there to define the requirements based on which I have design the security feature](#so-suppose-i-want-to-design-or-implement-a-spring-security-feature-for-my-app-so-what-are-point-that-i-need-to-consider-in-context-of-business-requirements-or-brd-like-what-kind-of-documentation-are-there-to-define-the-requirements-based-on-which-i-have-design-the-security-feature)
+- [Chat : yes please](#yes-please)
+- [Chat : microservice based spring boot application](#microservice-based-spring-boot-application)
+
 ## **Conversation **
 
+<a id="so-suppose-i-want-to-design-or-implement-a-spring-security-feature-for-my-app-so-what-are-point-that-i-need-to-consider-in-context-of-business-requirements-or-brd-like-what-kind-of-documentation-are-there-to-define-the-requirements-based-on-which-i-have-design-the-security-feature"></a>
 ### Chat : so suppose I want to design or implement a spring security feature for my app, so what are point that I need to consider in context of business requirements or BRD, like what kind of documentation are there to define the requirements based on which I have design the security feature
 
 When you design or implement **Spring Security** for an application, there are **specific types of requirements and documents** you should gather from the business team. These help you translate business needs → technical security architecture.
@@ -233,6 +240,7 @@ Just tell me:
 I’ll generate a ready-to-use document.
 
 
+<a id="yes-please"></a>
 ### Chat : yes please
 
 Great — I’ll prepare a **professional, ready-to-use Spring Security Requirement Template** for you.
@@ -290,6 +298,7 @@ Example:
 
 Perfect to use for interviews, real projects, or documentation.
 
+<a id="microservice-based-spring-boot-application"></a>
 ### Chat : microservice based spring boot application
 
 Awesome — I created a **complete, ready-to-use Spring Security Requirements Document** tailored for a **microservice-based Spring Boot application**.

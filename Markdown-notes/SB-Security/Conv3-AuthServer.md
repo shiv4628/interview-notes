@@ -1,3 +1,14 @@
+# Table of Contents
+
+- [Chat : spring boot microservice application auth server, use Jwt](#spring-boot-microservice-application-auth-server-use-jwt)
+- [Chat : how this is integrated with API gateway?](#how-this-is-integrated-with-api-gateway)
+- [Chat : "/ Use environment variables in production" ??](#use-environment-variables-in-production)
+- [Chat : Yes](#yes)
+- [Chat : Yes](#yes-1)
+- [Chat : Yes](#yes-2)
+- [Chat : "Now, each service can **fetch the JWT secret dynamically** from the Config Server." why there are multiple ,yml files here above](#now-each-service-can-fetch-the-jwt-secret-dynamically-from-the-config-server-why-there-are-multiple-yml-files-here-above)
+
+<a id="spring-boot-microservice-application-auth-server-use-jwt"></a>
 ### Chat : spring boot microservice application auth server, use Jwt
 
 ### **Spring Boot Microservices Authentication Server Using JWT**
@@ -315,6 +326,7 @@ Authorization: Bearer <your_token>
 Would you like me to help integrate this with your Angular frontend? 🚀
 
 
+<a id="how-this-is-integrated-with-api-gateway"></a>
 ### Chat : how this is integrated with API gateway?
 
 ### **Integrating JWT Authentication with API Gateway in a Spring Boot Microservices Architecture**
@@ -520,6 +532,7 @@ Authorization: Bearer <your_token>
 Would you like me to integrate role-based access control (RBAC) next? 🚀
 
 
+<a id="use-environment-variables-in-production"></a>
 ### Chat : "/ Use environment variables in production" ??
 
 You're right to ask about that! Instead of hardcoding the JWT secret key (`mySecretKey`) in the application, it's best to store it securely using **environment variables** or a **configuration server**.
@@ -591,6 +604,7 @@ If your microservices are distributed, use **Spring Cloud Config Server** to sto
 Would you like a guide on integrating **Spring Cloud Config** for secret management? 🚀
 
 
+<a id="yes"></a>
 ### Chat : Yes
 
 ### **Integrating Spring Cloud Config for Secure Secret Management in a Microservices Architecture**
@@ -780,6 +794,7 @@ POST http://localhost:8081/actuator/refresh
 Would you like help with **encrypting secrets** in the config repo for added security? 🔐🚀
 
 
+<a id="yes-1"></a>
 ### Chat : Yes
 
 ### **🔐 Encrypting Secrets in Spring Cloud Config for Added Security**
@@ -917,6 +932,7 @@ POST http://localhost:8081/actuator/refresh
 Would you like a guide on integrating **HashiCorp Vault** for even higher security? 🚀
 
 
+<a id="yes-2"></a>
 ### Chat : Yes
 
 ### **🔐 Integrating HashiCorp Vault for Secure Secret Management in Spring Boot Microservices**
@@ -1049,6 +1065,7 @@ If everything is set up correctly, your application will securely fetch the **JW
 Would you like help with setting up **Vault authentication using Kubernetes or AWS IAM?** 🚀
 
 
+<a id="now-each-service-can-fetch-the-jwt-secret-dynamically-from-the-config-server-why-there-are-multiple-yml-files-here-above"></a>
 ### Chat : "Now, each service can **fetch the JWT secret dynamically** from the Config Server." why there are multiple ,yml files here above
 
 Great question! The reason there are **multiple `.yml` files** in the **Spring Cloud Config repository** is to manage configurations for multiple microservices **independently** while keeping a common configuration when needed.

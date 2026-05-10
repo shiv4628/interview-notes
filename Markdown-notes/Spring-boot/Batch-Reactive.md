@@ -1,5 +1,16 @@
+# Table of Contents
+
+- [Chat : spring boot batch processing](#spring-boot-batch-processing)
+- [Chat : reactive programming in spring boot](#reactive-programming-in-spring-boot)
+- [Chat : what is webflux](#what-is-webflux)
+- [Chat : what are websockets?](#what-are-websockets)
+- [Chat : Chat](#chat)
+- [Chat : "ConcurrencyThread-per-request modelEvent loop (Reactive Streams)"](#concurrencythread-per-request-modelevent-loop-reactive-streams)
+- [Chat : what is r2dbms?](#what-is-r2dbms)
+
 ## **Conversation**
 
+<a id="spring-boot-batch-processing"></a>
 ### Chat :spring boot batch processing
 
 Spring Boot Batch Processing is a powerful way to handle large volumes of data in a robust and efficient way using the **Spring Batch** framework. It’s ideal for tasks like reading data from a file or database, processing it, and writing the output to another destination (like a file, DB, or API).
@@ -149,6 +160,7 @@ Let me know your use case, and I’ll tailor the example for you.
 
 ## **Conversation**
 
+<a id="reactive-programming-in-spring-boot"></a>
 ### Chat : reactive programming in spring boot
 
 Reactive programming in Spring Boot is primarily supported by **Project Reactor**, which provides a reactive streams implementation using **Mono** and **Flux**. This enables building non-blocking, event-driven applications that are highly scalable and efficient.
@@ -324,6 +336,7 @@ public Flux<String> streamData() {
 Would you like a specific example, like integrating reactive programming with databases or messaging queues (Kafka, RabbitMQ)? 🚀
 
 
+<a id="what-is-webflux"></a>
 ### Chat : what is webflux
 
 ### **Spring WebFlux - Reactive Web Framework**
@@ -459,6 +472,7 @@ Spring WebFlux is perfect for **modern, scalable, and high-performance applicati
 Would you like a deeper dive into **WebSockets, functional routing, or reactive databases** with WebFlux? 🚀
 
 
+<a id="what-are-websockets"></a>
 ### Chat : what are websockets?
 
 ### **WebSockets - Real-Time Bi-Directional Communication**
@@ -594,6 +608,7 @@ socket.onmessage = (event) => {
 Would you like an example using **Spring MVC instead of WebFlux** or a **chat application demo**? 🚀
 
 
+<a id="chat"></a>
 ### Chat : 
 " **Best for:** * High-concurrency applications. * Streaming data, WebSockets, or SSE. * Microservices communicating via non-blocking APIs."
 
@@ -675,6 +690,7 @@ With **WebFlux and Reactive APIs**:
 Would you like me to explain with a **real-world example** in more depth? 🚀
 
 
+<a id="concurrencythread-per-request-modelevent-loop-reactive-streams"></a>
 ### Chat : "ConcurrencyThread-per-request modelEvent loop (Reactive Streams)"
 can you explain these models?
 
@@ -795,6 +811,7 @@ public Mono<Product> getProduct(@PathVariable String id) {
 Would you like me to show a **real-world example** comparing both approaches? 🚀
 
 
+<a id="what-is-r2dbms"></a>
 ### Chat : what is r2dbms?
 
 I think you meant **R2DBC (Reactive Relational Database Connectivity)** instead of **R2DBMS**. Let me explain both concepts:

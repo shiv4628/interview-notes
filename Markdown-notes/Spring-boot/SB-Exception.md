@@ -1,5 +1,11 @@
+# Table of Contents
+
+- [Chat : How to generate custom error response in case of java spring application](#how-to-generate-custom-error-response-in-case-of-java-spring-application)
+- [Chat : Yes](#yes)
+
 ## **Conversation**
 
+<a id="how-to-generate-custom-error-response-in-case-of-java-spring-application"></a>
 ### Chat : How to generate custom error response in case of java spring application 
 
 In a Java Spring application, you can generate a **custom error response** by using the `@ControllerAdvice` and `@ExceptionHandler` annotations to globally handle exceptions and return a standardized error response. This is useful for REST APIs when you want to return structured JSON error messages.
@@ -118,6 +124,7 @@ public ResponseEntity<ErrorResponse> handleUserNotFound(UserNotFoundException ex
 Let me know if you'd like to include error codes, sub-errors, or use `@RestControllerAdvice` (which is the same as `@ControllerAdvice` + `@ResponseBody`).
 
 
+<a id="yes"></a>
 ### Chat : Yes
 
 Great! Let’s enhance the solution with the following improvements:

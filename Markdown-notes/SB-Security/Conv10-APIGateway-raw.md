@@ -1,5 +1,11 @@
+# Table of Contents
+
+- [Chat : how to implement security in spring boot microservice application?](#how-to-implement-security-in-spring-boot-microservice-application)
+- [Chat : how to implement it through API gateway](#how-to-implement-it-through-api-gateway)
+
 ## **Conversation **
 
+<a id="how-to-implement-security-in-spring-boot-microservice-application"></a>
 ### Chat : how to implement security in spring boot microservice application?
 
 Implementing security in a Spring Boot microservice application involves several steps. Here’s a high-level guide:
@@ -196,6 +202,7 @@ Track security events:
 By implementing these strategies, you can ensure robust security in your Spring Boot microservice application. Let me know if you'd like code samples for any specific step!
 
 
+<a id="how-to-implement-it-through-api-gateway"></a>
 ### Chat : how to implement it through API gateway
 
 Implementing security through an API Gateway is a common approach in microservices architecture. Here's how you can do it:

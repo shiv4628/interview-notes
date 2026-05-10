@@ -1,5 +1,13 @@
+# Table of Contents
+
+- [Chat : what is distributed systems in software](#what-is-distributed-systems-in-software)
+- [Chat : what are nodes in distributed systems](#what-are-nodes-in-distributed-systems)
+- [Chat : event driven architecture microservices](#event-driven-architecture-microservices)
+- [Chat : can client based architecture front and back end app is also an example of distributed system?](#can-client-based-architecture-front-and-back-end-app-is-also-an-example-of-distributed-system)
+
 ## **Conversation**
 
+<a id="what-is-distributed-systems-in-software"></a>
 ### Chat : what is distributed systems in software
 
 Distributed systems in software refer to a collection of independent computers that work together to achieve a common goal. These systems are designed to appear to users as a single coherent system, even though they consist of multiple separate computers (nodes) that communicate and coordinate their actions via a network.
@@ -33,6 +41,7 @@ Distributed systems in software refer to a collection of independent computers t
 Distributed systems are foundational to many modern applications, especially in cloud computing, big data processing, and large-scale web services.
 
 
+<a id="what-are-nodes-in-distributed-systems"></a>
 ### Chat : what are nodes in distributed systems
 
 In distributed systems, a **node** refers to an individual computer or device that is part of the network and participates in the execution of the system's tasks. Each node in a distributed system typically operates independently but works in concert with other nodes to achieve a common goal.
@@ -65,6 +74,7 @@ In distributed systems, a **node** refers to an individual computer or device th
 In essence, a node is any computing entity in a distributed system that contributes to the system's overall functionality.
 
 
+<a id="event-driven-architecture-microservices"></a>
 ### Chat : event driven architecture microservices
 
 Event-driven architecture (EDA) in microservices is a design pattern where services communicate with each other through the production, detection, consumption, and reaction to events. This approach decouples services and allows them to operate independently, reacting to changes in the system as they occur.
@@ -146,6 +156,7 @@ Event-driven architecture (EDA) in microservices is a design pattern where servi
 Event-driven architecture is particularly well-suited for systems that require high scalability, flexibility, and responsiveness.
 
 
+<a id="can-client-based-architecture-front-and-back-end-app-is-also-an-example-of-distributed-system"></a>
 ### Chat : can client based architecture front  and back end app is also an example of distributed system?
 
 **Yes — a front-end + back-end client/server application *is* a distributed system.**

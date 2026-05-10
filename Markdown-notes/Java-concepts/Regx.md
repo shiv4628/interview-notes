@@ -1,5 +1,12 @@
+# Table of Contents
+
+- [Chat : regular expressions in java](#regular-expressions-in-java)
+- [Chat : how to write regular expressions](#how-to-write-regular-expressions)
+- [Chat : how to write a cron expression](#how-to-write-a-cron-expression)
+
 ## **Conversation**
 
+<a id="regular-expressions-in-java"></a>
 ### Chat : regular expressions in java
 
 Regular expressions (regex) in Java provide a powerful way to search, manipulate, and parse text. Here's a guide to get you started:
@@ -130,6 +137,7 @@ public class SplitExample {
 Would you like to explore specific examples or concepts further?
 
 
+<a id="how-to-write-regular-expressions"></a>
 ### Chat : how to write regular expressions
 
 Writing regular expressions (regex) can seem complex at first, but it becomes easier as you understand the basic building blocks and practice. Here’s a guide to help you craft regular expressions effectively:
@@ -233,6 +241,7 @@ Writing regular expressions (regex) can seem complex at first, but it becomes ea
 Would you like examples of specific patterns or further practice exercises?
 
 
+<a id="how-to-write-a-cron-expression"></a>
 ### Chat : how to write a cron expression
 
 Cron expressions are used to schedule tasks at specified times or intervals, often in automation tools like cron jobs on Unix/Linux or in Java's **Quartz Scheduler**. Here's a guide on how to write them:

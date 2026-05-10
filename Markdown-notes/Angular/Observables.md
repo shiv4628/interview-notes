@@ -1,3 +1,16 @@
+# Table of Contents
+
+- [Chat :  Can you explain angular obeseravble and http api calls flow from angular application](#chat--can-you-explain-angular-obeseravble-and-http-api-calls-flow-from-angular-application)
+- [Chat : can you explain this next keyword in angular code](#chat--can-you-explain-this-next-keyword-in-angular-code)
+- [Chat : can you explain this code, the purpose of import and export in @NgModule](#chat--can-you-explain-this-code-the-purpose-of-import-and-export-in-ngmodule)
+- [Chat : so can you explain me in depth how export and imports work ,with examples](#chat--so-can-you-explain-me-in-depth-how-export-and-imports-work-with-examples)
+- [Chat : can you give examples of the "declared in exactly ONE module" rule](#chat--can-you-give-examples-of-the-declared-in-exactly-one-module-rule)
+- [Chat : why use forRoot and why export RouterModule without forRoot](#chat--why-use-forroot-and-why-export-routermodule-without-forroot)
+- [Chat : Angular api call, how?](#chat--angular-api-call-how)
+- [Chat : For errors](#chat--for-errors)
+- [Chat : promise and observable](#chat--promise-and-observable)
+- [Chat : can you teach me angular observables?](#chat--can-you-teach-me-angular-observables)
+
 ## **Conversation**
 
 ### Chat :  Can you explain angular obeseravble and http api calls flow from angular application 
@@ -462,7 +475,7 @@ Just tell me 👍
 
 ## **Conversation**
 
-### Chat : 
+### Chat : can you explain this code, the purpose of import and export in @NgModule
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -1150,7 +1163,7 @@ If you want, I can also explain something **very important for Angular architect
 This is one of the **most confusing Angular concepts**, but once you understand it, Angular becomes much easier.
 
 
-### Chat : 
+### Chat : can you give examples of the "declared in exactly ONE module" rule
 "Important Rule ============== A component must be: Declared in exactly ONE module But can be **exported to many modules**."
 can you give examples?
 
@@ -1452,8 +1465,8 @@ This is how **real enterprise Angular projects are structured**.
 I can also show you the **folder structure used in large production apps**, which makes Angular much easier to understand.
 
 
-### Chat :
-" @NgModule({ imports: \[RouterModule.forRoot(routes)\], exports: \[RouterModule\] }) "
+### Chat : why use forRoot and why export RouterModule without forRoot?
+" @NgModule({ imports: [RouterModule.forRoot(routes)], exports: [RouterModule] }) "
 
 why we are using forRoot and why we are only exporting RouterModule and not with forRoot as we did in imports? 
 

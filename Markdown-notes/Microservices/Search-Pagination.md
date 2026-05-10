@@ -1,5 +1,13 @@
+# Table of Contents
+
+- [Chat : how to implement search feature in a spring boot micro-service e-commerce app](#how-to-implement-search-feature-in-a-spring-boot-micro-service-e-commerce-app)
+- [Chat : Yes](#yes)
+- [Chat : Implement a basic ecommerce spring boot microservice application with filtering and search functionality](#implement-a-basic-ecommerce-spring-boot-microservice-application-with-filtering-and-search-functionality)
+- [Chat : implement paging sorting and filtering implement user authentication and roles using jwt](#implement-paging-sorting-and-filtering-implement-user-authentication-and-roles-using-jwt)
+
 ## **Conversation**
 
+<a id="how-to-implement-search-feature-in-a-spring-boot-micro-service-e-commerce-app"></a>
 ### Chat : how to implement search feature in a spring boot micro-service e-commerce app
 
 Implementing a search feature in a **Spring Boot microservices-based e-commerce app** involves several steps, depending on the type of search you want to provide (basic, full-text, or advanced with filters). Below is a **step-by-step approach**:
@@ -238,6 +246,7 @@ For **basic search**, **SQL queries** work well. For **large-scale e-commerce**,
 Do you want help with setting up Elasticsearch or additional filtering features? 🚀
 
 
+<a id="yes"></a>
 ### Chat : Yes
 
 Great! Let's set up **Elasticsearch** for your Spring Boot microservices-based e-commerce app. 🚀
@@ -508,6 +517,7 @@ Would you like me to help with **adding sorting (e.g., price low to high)** or a
 
 ## **Conversation**
 
+<a id="implement-a-basic-ecommerce-spring-boot-microservice-application-with-filtering-and-search-functionality"></a>
 ### Chat : Implement a basic ecommerce spring boot microservice application with filtering and search functionality 
 
 Here’s a step-by-step guide to implement a basic e-commerce Spring Boot microservice application with filtering and search functionality:
@@ -736,6 +746,7 @@ You can extend this application by:
 Let me know if you want code for additional features!
 
 
+<a id="implement-paging-sorting-and-filtering-implement-user-authentication-and-roles-using-jwt"></a>
 ### Chat : implement paging sorting and filtering implement user authentication and roles using jwt
 
 Here’s an extended implementation of your e-commerce Spring Boot microservice to include **pagination, sorting, filtering**, and **user authentication and roles using JWT**.

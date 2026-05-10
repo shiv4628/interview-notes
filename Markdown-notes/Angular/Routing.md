@@ -1,3 +1,8 @@
+# Table of Contents
+
+- [Chat : `how routing works in angular](#chat--how-routing-works-in-angular)
+- [Chat : angular loadChildren](#chat--angular-loadchildren)
+
 ## **Conversation**
 
 ### Chat : `how routing works in angular

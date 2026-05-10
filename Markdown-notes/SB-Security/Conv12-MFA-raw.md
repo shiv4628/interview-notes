@@ -1,5 +1,13 @@
+# Table of Contents
+
+- [Chat : how to create spring boot application with MFA ie login through otp](#how-to-create-spring-boot-application-with-mfa-ie-login-through-otp)
+- [Chat : using twilio](#using-twilio)
+- [Chat : instead of adding twilio maven dependenc, can we use something like twilio using api calls?](#instead-of-adding-twilio-maven-dependenc-can-we-use-something-like-twilio-using-api-calls)
+- [Chat : yes please](#yes-please)
+
 ## **Conversation **
 
+<a id="how-to-create-spring-boot-application-with-mfa-ie-login-through-otp"></a>
 ### Chat : how to create spring boot application with MFA ie login through otp
 
 To create a **Spring Boot application with MFA (Multi-Factor Authentication)** using **OTP (One-Time Password)** during login, you can follow this general process:
@@ -221,6 +229,7 @@ Register this filter after the login filter.
 If you want a **ready-made GitHub example**, let me know — I can help you scaffold it.
 
 
+<a id="using-twilio"></a>
 ### Chat : using twilio
 
 Great! To implement **Spring Boot login with OTP (MFA) using Twilio**, you'll send the OTP via **SMS** using Twilio's API instead of email.
@@ -402,6 +411,7 @@ This is a basic flow. In a real app, integrate this with Spring Security filters
 Would you like a full GitHub demo repo or UI integration using Angular/Postman?
 
 
+<a id="instead-of-adding-twilio-maven-dependenc-can-we-use-something-like-twilio-using-api-calls"></a>
 ### Chat : instead of adding twilio maven dependenc, can we use something like twilio using api calls?
 
 Yes, absolutely! You **don’t need to add the Twilio SDK as a Maven dependency** — you can use **Twilio's REST API directly** using plain HTTP calls (e.g., with `RestTemplate` or `WebClient` in Spring Boot).
@@ -507,6 +517,7 @@ smsService.sendSms("+919999999999", "Your OTP is: 123456");
 Would you like me to give the same logic using `WebClient` instead of `RestTemplate` (which is more reactive and modern)?
 
 
+<a id="yes-please"></a>
 ### Chat : yes please
 
 Great! Here's how to use **`WebClient`** (the modern non-blocking HTTP client in Spring) to call **Twilio's SMS API** without using the SDK.

@@ -1,5 +1,41 @@
+# Table of Contents
+
+- [Chat : Chat](#chat)
+- [Chat : Given a input string - "NNNNNTTDAAAATTTTTAAA"; output should be compressed as - "N5T2D1A4T5A3" in java](#given-a-input-string---nnnnnttdaaaatttttaaa-output-should-be-compressed-as---n5t2d1a4t5a3-in-java)
+- [Chat : Java coding interview problem](#java-coding-interview-problem)
+- [Chat : Any other approaches](#any-other-approaches)
+- [Chat : java program to find first non-repeating character](#java-program-to-find-first-non-repeating-character)
+- [Chat : how to sort a map using java 8, example](#how-to-sort-a-map-using-java-8-example)
+- [Chat : sort a employee list based on salary then by age](#sort-a-employee-list-based-on-salary-then-by-age)
+- [Chat : To check prime in java](#to-check-prime-in-java)
+- [Chat : sort the employee list first by gender(male first) then by name](#sort-the-employee-list-first-by-gender-male-first-then-by-name)
+- [Chat : "(Employee e) " can we simply use "e" instead of "Employee e"](#employee-e-can-we-simply-use-e-instead-of-employee-e)
+- [Chat : Chat](#chat-1)
+- [Chat : any other approach?](#any-other-approach)
+- [Chat : Chat](#chat-2)
+- [Chat : write a java program to find second smallest integer from a list of integers using stream](#write-a-java-program-to-find-second-smallest-integer-from-a-list-of-integers-using-stream)
+- [Chat : what if it has duplicates](#what-if-it-has-duplicates)
+- [Chat : can you give ouput as integer here only](#can-you-give-ouput-as-integer-here-only)
+- [Chat : " findFirst(); " here as a integer](#findfirst-here-as-a-integer)
+- [Chat : Find the frequency of string](#find-the-frequency-of-string)
+- [Chat : Find the first non- repeating char](#find-the-first-non--repeating-char)
+- [Chat : Write a java program which take string input as "aaabbcccccddeeee" and gives ouput as "a3b2c5d2e4"](#write-a-java-program-which-take-string-input-as-aaabbcccccddeeee-and-gives-ouput-as-a3b2c5d2e4)
+- [Chat : java comparable vs comparator](#java-comparable-vs-comparator)
+- [Chat : java serialization and deserialization](#java-serialization-and-deserialization)
+- [Chat : java optional usage](#java-optional-usage)
+- [Chat : java optional class](#java-optional-class)
+- [Chat : image, ss](#image-ss)
+- [Chat : image, ss](#image-ss-1)
+- [Chat : how to convert Integer to Long in java](#how-to-convert-integer-to-long-in-java)
+- [Chat : integer to long, should be implicit or what?](#integer-to-long-should-be-implicit-or-what)
+- [Chat : can you explain me string append method, like it appends at end or start?](#can-you-explain-me-string-append-method-like-it-appends-at-end-or-start)
+- [Chat : what will be the output?](#what-will-be-the-output)
+- [Chat : I am giving you the problem link URL from leetcode, can you solve this using DFS?](#i-am-giving-you-the-problem-link-url-from-leetcode-can-you-solve-this-using-dfs)
+- [Chat : can you implement this without modifying the actual grid and create a new boolean grid name it as visited?](#can-you-implement-this-without-modifying-the-actual-grid-and-create-a-new-boolean-grid-name-it-as-visited)
+
 ## **Conversation**
 
+<a id="chat"></a>
 ### Chat : 
 /**
    * chr findFirst(String input)
@@ -60,6 +96,7 @@ public class FirstNonRepeatingChar {
 Would you like an optimized version using only arrays (for ASCII characters)?
 
 
+<a id="given-a-input-string---nnnnnttdaaaatttttaaa-output-should-be-compressed-as---n5t2d1a4t5a3-in-java"></a>
 ### Chat : Given a input string - "NNNNNTTDAAAATTTTTAAA"; output should be compressed as - "N5T2D1A4T5A3" in java
 
 You can achieve this compression using **StringBuilder** to efficiently build the result. Here's the implementation:
@@ -125,6 +162,7 @@ Would you like to modify this to handle lowercase characters or numbers as well?
 
 ## **Conversation**
 
+<a id="java-coding-interview-problem"></a>
 ### Chat : Java coding interview problem
 
 To solve the problem "Find the largest number within the same input digit combination" in Java, you can follow this approach:
@@ -173,6 +211,7 @@ public class LargestNumberFromDigits {
 Let me know if you need further clarification or enhancements!
 
 
+<a id="any-other-approaches"></a>
 ### Chat : Any other approaches 
 
 Yes, there are other approaches to find the largest number from the digits of a given number. Here are a few alternatives:
@@ -333,6 +372,7 @@ public class LargestNumberFromDigits {
 Let me know which one fits your requirements or if you'd like further help!
 
 
+<a id="java-program-to-find-first-non-repeating-character"></a>
 ### Chat : java program to find first non-repeating character
 
 Here's a Java program to find the first non-repeating character in a string:
@@ -459,6 +499,7 @@ Let me know if you'd like further optimizations or explanations!
 
 ## **Conversation**
 
+<a id="how-to-sort-a-map-using-java-8-example"></a>
 ### Chat : how to sort a map using java 8, example
 Map<String,Integer> empSal = new HashMap<>();
 
@@ -548,6 +589,7 @@ Sorted by Key: {Alice=60000, Bob=45000, Diana=70000, John=50000}
 
 You can adapt the comparator to change the sorting logic (e.g., descending order).
 
+<a id="sort-a-employee-list-based-on-salary-then-by-age"></a>
 ### Chat : sort a employee list based on salary then by age
 
 To sort a list of employees based on their salary (primary sorting) and then by age (secondary sorting), you can use **Java 8's `Comparator`** with the `thenComparing` method.
@@ -641,6 +683,7 @@ This will sort salaries in descending order while keeping the age comparison in 
 
 ## **Conversation**
 
+<a id="to-check-prime-in-java"></a>
 ### Chat : To check prime in java 
 
 To check if a number is prime in Java, you can use the following method:
@@ -681,6 +724,7 @@ You can test it by changing the value of `num`.
 
 ## **Conversation**
 
+<a id="sort-the-employee-list-first-by-gender-male-first-then-by-name"></a>
 ### Chat : sort the employee list first by gender(male first) then by name 
 Emlpoyee{
 id, name, gender , salary
@@ -771,6 +815,7 @@ Employee{id=4, name='Diana', gender='Female', salary=80000.0}
 Let me know if you have any questions!
 
 
+<a id="employee-e-can-we-simply-use-e-instead-of-employee-e"></a>
 ### Chat : "(Employee e) " can we simply use "e" instead of "Employee e"
 
 Yes, you can simplify the lambda expression by using `e` instead of `Employee e` in the comparator. Lambda expressions in Java infer the type automatically based on the context. Here's the updated code:
@@ -836,6 +881,7 @@ public class Main {
 This version is cleaner and achieves the same result!
 
 
+<a id="chat-1"></a>
 ### Chat :
 find the employee name with second highest salary in each department, considering the table structure as here 
 employee  					    	dept 
@@ -930,6 +976,7 @@ For the above data, the query will return:
 
 This ensures you get the employee with the second-highest salary in each department. Let me know if you'd like further clarification!
 
+<a id="any-other-approach"></a>
 ### Chat : any other approach?
 
 Another approach to finding the employee with the second-highest salary in each department is to use **subqueries** without relying on window functions like `RANK()`. This method uses a self-join or a subquery to get the second-highest salary for each department.
@@ -1004,6 +1051,7 @@ WHERE
 This method is a more traditional SQL approach for getting the second-highest value, and it works without needing window functions. Let me know if you'd like further details!
 
 
+<a id="chat-2"></a>
 ### Chat : 
 we have a list of strings {one, two, three, four, five, six} ;
 convert to map ie Map<String,Integer> such that key will be string item and value will be its length ; using java stream
@@ -1055,6 +1103,7 @@ six = 3
 This code creates a map where each string in the list is mapped to its length. Let me know if you need further assistance!
 
 
+<a id="write-a-java-program-to-find-second-smallest-integer-from-a-list-of-integers-using-stream"></a>
 ### Chat : write a java program to find second smallest integer from a list of integers using stream
 
 To find the second smallest integer from a list of integers using Java Streams, you can use the following approach:
@@ -1111,6 +1160,7 @@ Second smallest: 5
 Let me know if you need further details!
 
 
+<a id="what-if-it-has-duplicates"></a>
 ### Chat : what if it has duplicates
 
 If the list of integers has duplicates, and you want to find the second smallest unique integer, you need to eliminate duplicates first. You can do this by converting the stream to a `Set` (which automatically removes duplicates) before sorting and applying the logic to find the second smallest unique integer.
@@ -1163,6 +1213,7 @@ Second smallest unique: 5
 This approach ensures that duplicates are ignored, and the second smallest unique integer is returned. Let me know if you have any questions!
 
 
+<a id="can-you-give-ouput-as-integer-here-only"></a>
 ### Chat : can you give ouput as integer here only
 
 Certainly! Given the input list `{12, 34, 5, 9, 67, 23, 45, 1, 5, 9, 12}`, and using the provided code, the output (second smallest unique integer) will be:
@@ -1174,6 +1225,7 @@ Certainly! Given the input list `{12, 34, 5, 9, 67, 23, 45, 1, 5, 9, 12}`, and u
 This is the second smallest unique integer from the list after removing duplicates and sorting.
 
 
+<a id="findfirst-here-as-a-integer"></a>
 ### Chat : " findFirst(); " here as a integer
 
 If you're asking for the output as an `Integer` directly from the stream without wrapping it in an `Optional`, you'd need to handle the case where the second smallest integer may not exist. However, if you want the result as an `Integer` and ensure it returns a default value (for example, `null` or some specific integer) if no second smallest element is found, here’s how you can modify the code:
@@ -1219,6 +1271,7 @@ If there are fewer than two distinct elements, it will return `null`.
 
 ## **Conversation**
 
+<a id="find-the-frequency-of-string"></a>
 ### Chat : Find the frequency of string 
 
 Here's a Java program to find the frequency of characters in the given string:
@@ -1267,6 +1320,7 @@ a: 2
 ```
 
 
+<a id="find-the-first-non--repeating-char"></a>
 ### Chat : Find the first non- repeating char
 
 Here’s a Java program to find the first non-repeating character in the given string:
@@ -1323,6 +1377,7 @@ The first non-repeating character is: v
 
 ## **Conversation**
 
+<a id="write-a-java-program-which-take-string-input-as-aaabbcccccddeeee-and-gives-ouput-as-a3b2c5d2e4"></a>
 ### Chat : Write a java program which take string input as "aaabbcccccddeeee" and gives ouput as "a3b2c5d2e4"
 
 Sure, here's a Java program that accomplishes that task:
@@ -1369,6 +1424,7 @@ public class Main {
 This program takes a string input, iterates through it, counts consecutive occurrences of each character, and constructs the compressed string accordingly.
 
 
+<a id="java-comparable-vs-comparator"></a>
 ### Chat : java comparable vs comparator
 
 In Java, both `Comparable` and `Comparator` are used to define the natural ordering of objects. However, they serve different purposes and are used in different contexts. Here's a detailed comparison:
@@ -1500,6 +1556,7 @@ class AgeComparator implements Comparator<Student> {
 Choose `Comparable` when you have a single, natural way of comparing objects and `Comparator` when you need to compare objects in multiple ways or cannot modify the class whose objects you are comparing.
 
 
+<a id="java-serialization-and-deserialization"></a>
 ### Chat : java serialization and deserialization
 
 Serialization and deserialization in Java are mechanisms used to convert an object into a byte stream and vice versa. This process is fundamental for saving objects to a file, sending objects over a network, or storing objects in a database.
@@ -1617,6 +1674,7 @@ public class DeserializeDemo {
 This example demonstrates the basics of serialization and deserialization in Java.
 
 
+<a id="java-optional-usage"></a>
 ### Chat : java optional usage
 
 In Java, the `Optional` class is a container object which may or may not contain a non-null value. It was introduced in Java 8 to help address the issue of null references and avoid `NullPointerException`. Here's a detailed explanation of how to use `Optional` effectively.
@@ -1768,6 +1826,7 @@ public class OptionalDemo {
 * Do not use `Optional` for fields in entities or DTOs; it's mainly for return types of methods that might not return a value.
 
 
+<a id="java-optional-class"></a>
 ### Chat : java optional class
 
 The `Optional` class in Java is a container object which may or may not contain a non-null value. It is used to avoid null checks and `NullPointerException` in the code. The `Optional` class provides various utility methods to work with the possible presence or absence of a value in a safe and expressive manner.
@@ -1915,6 +1974,7 @@ public class OptionalDemo {
 
 ## **Conversation**
 
+<a id="image-ss"></a>
 ### Chat : image, ss
 
 The image shows a task to display all numbers starting with `1` from an array using Java **Stream API**. Here's how you can write the Java code for that:
@@ -1948,6 +2008,7 @@ Output : [10, 15, 110]
 Let me know if you want the same logic using `Optional`, `forEach`, or without streams.
 
 
+<a id="image-ss-1"></a>
 ### Chat : image, ss
 
 The code snippet from your image is:
@@ -2003,6 +2064,7 @@ Let me know if you want a visual diagram of memory or string pool behavior.
 
 ## **Conversation**
 
+<a id="how-to-convert-integer-to-long-in-java"></a>
 ### Chat : how to convert Integer to Long in java
 
 In Java, you can convert an `Integer` to `Long` in multiple ways. Here are the different approaches:
@@ -2084,6 +2146,7 @@ System.out.println(longValue);
 Use `Long.valueOf(intValue)` or `Integer::longValue()` for clarity and efficiency.
 
 
+<a id="integer-to-long-should-be-implicit-or-what"></a>
 ### Chat : integer to long, should be implicit or what?
 
 ### **Should Integer to Long Conversion Be Implicit in Java?**
@@ -2153,6 +2216,7 @@ Long longValue = intValue.longValue(); // Best approach ✅
 
 ## **Conversation**
 
+<a id="can-you-explain-me-string-append-method-like-it-appends-at-end-or-start"></a>
 ### Chat : can you explain me string append method, like it appends at end or start?
 
 Great question — this is a very common confusion 👍
@@ -2281,6 +2345,7 @@ If you want, I can also explain:
 * Internal working of `append()` (how resizing happens)
 
 
+<a id="what-will-be-the-output"></a>
 ### Chat : what will be the output?
 
 
@@ -2442,6 +2507,7 @@ If you want, I can give you:
 
 ## **Conversation**
 
+<a id="i-am-giving-you-the-problem-link-url-from-leetcode-can-you-solve-this-using-dfs"></a>
 ### Chat : I am giving you the problem link URL from leetcode, can you solve this using DFS?
 Link https://leetcode.com/problems/number-of-islands/description/
 
@@ -2507,6 +2573,7 @@ class Solution {
 Would you like a **BFS** solution as well? 🚀
 
 
+<a id="can-you-implement-this-without-modifying-the-actual-grid-and-create-a-new-boolean-grid-name-it-as-visited"></a>
 ### Chat : can you implement this without modifying the actual grid and create a new boolean grid name it as visited?
 
 Yes! Instead of modifying the original grid, we can use a **boolean[][] visited** array to track visited cells. Here's the updated DFS solution:

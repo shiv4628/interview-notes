@@ -1,5 +1,16 @@
+# Table of Contents
+
+- [Chat : what does this mean?](#what-does-this-mean)
+- [Chat : ok, then what is difference b/w IDENTITY and AUTO?](#ok-then-what-is-difference-b-w-identity-and-auto)
+- [Chat : "usually with an `AUTO_INCREMENT` column" is this a keyword for these database?](#usually-with-an-auto-increment-column-is-this-a-keyword-for-these-database)
+- [Chat : can you explain this?](#can-you-explain-this)
+- [Chat : what are default attributes set for the @GeneratedValue in spring data jpa](#what-are-default-attributes-set-for-the-generatedvalue-in-spring-data-jpa)
+- [Chat : "strategy = GenerationType.IDENTITY" what is identity?](#strategy-generationtype-identity-what-is-identity)
+- [Chat : how can we optimize query in spring boot aplication](#how-can-we-optimize-query-in-spring-boot-aplication)
+
 ## **Conversation**
 
+<a id="what-does-this-mean"></a>
 ### Chat : what does this mean?
 @GeneratedValue(strategy = GenerationType.IDENTITY) 
 
@@ -60,6 +71,7 @@ There are other `GenerationType` options as well:
 Let me know if you want a comparison or example for the other strategies too.
 
 
+<a id="ok-then-what-is-difference-b-w-identity-and-auto"></a>
 ### Chat : ok, then what is difference b/w IDENTITY and AUTO?
 
 Great question! The difference between `GenerationType.IDENTITY` and `GenerationType.AUTO` lies mainly in **how the primary key values are generated** and **who decides the strategy — the developer or JPA**.
@@ -122,6 +134,7 @@ Great question! The difference between `GenerationType.IDENTITY` and `Generation
 Let me know if you want examples or behavior across specific databases.
 
 
+<a id="usually-with-an-auto-increment-column-is-this-a-keyword-for-these-database"></a>
 ### Chat : "usually with an `AUTO_INCREMENT` column" is this a keyword for these database?
 
 Yes, in most relational databases, `AUTO_INCREMENT` (or its equivalent) is a **database keyword or feature** used to automatically generate values for primary keys. However, the **name of the keyword varies by database**.
@@ -158,6 +171,7 @@ These keywords tell the database:
 Let me know which DB you're using, and I can show you the exact DDL and mapping!
 
 
+<a id="can-you-explain-this"></a>
 ### Chat : can you explain this?
  @Query("{\"bool\": {\"must\": [ {\"multi_match\": {\"query\": \"?0\", \"fields\": [\"name\", \"category\"]}} ], \"filter\": [{\"range\": {\"price\": {\"gte\": ?1, \"lte\": ?2}}}]}}")
 
@@ -274,6 +288,7 @@ Let me know if you want help writing similar custom queries or using annotations
 
 ## **Conversation**
 
+<a id="what-are-default-attributes-set-for-the-generatedvalue-in-spring-data-jpa"></a>
 ### Chat : what are default attributes set for the @GeneratedValue in spring data jpa
 
 In Spring Data JPA, the `@GeneratedValue` annotation is used to specify that a value will be automatically generated for the primary key when a new entity is persisted. Its default attributes and behavior are as follows:
@@ -351,6 +366,7 @@ private Long id;
 This provides flexibility to adapt to specific database requirements.
 
 
+<a id="strategy-generationtype-identity-what-is-identity"></a>
 ### Chat : "strategy = GenerationType.IDENTITY" what is identity?
 
 In Spring Data JPA, when you use `@GeneratedValue(strategy = GenerationType.IDENTITY)`, the **IDENTITY** strategy relies on the database's **identity column feature** to automatically generate primary key values. This is a simple and widely-used generation strategy.
@@ -421,6 +437,7 @@ The `IDENTITY` strategy is ideal for simple cases where you don't need portabili
 
 ## **Conversation**
 
+<a id="how-can-we-optimize-query-in-spring-boot-aplication"></a>
 ### Chat : how can we optimize query in spring boot aplication
 
 Optimizing queries in a Spring Boot application involves improving database interaction, reducing resource consumption, and enhancing the speed of query execution. Here are practical strategies to achieve this:

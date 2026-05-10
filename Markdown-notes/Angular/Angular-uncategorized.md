@@ -1,3 +1,18 @@
+# Table of Contents
+
+- [Chat : Private and protected keywords in ts and angular](#chat--private-and-protected-keywords-in-ts-and-angular)
+- [Chat : angular expressions](#chat--angular-expressions)
+- [Chat : lifecycle hooks](#chat--lifecycle-hooks)
+- [Chat : directives](#chat--directives)
+- [Chat : can you help me learn angular](#chat--can-you-help-me-learn-angular)
+- [Chat : first list down the topics/syllabus to learn](#chat--first-list-down-the-topicssyllabus-to-learn)
+- [Chat : lets start with forms](#chat--lets-start-with-forms)
+- [Chat : angular lifecycle](#chat--angular-lifecycle)
+- [Chat : Order of execution of lifecycle hooks](#chat--order-of-execution-of-lifecycle-hooks)
+- [Chat : This is Angular Parent-to-Child and Child-to-Parent communication.](#chat--this-is-angular-parent-to-child-and-child-to-parent-communication)
+- [Chat : can you help me revise angular concepts in brief?](#chat--can-you-help-me-revise-angular-concepts-in-brief)
+- [Chat : how front end angular application are integrated with back-end spring boot microservice applications](#chat--how-front-end-angular-application-are-integrated-with-back-end-spring-boot-microservice-applications)
+
 ## **Conversation**
 
 ### Chat : Private and protected keywords in ts and angular 

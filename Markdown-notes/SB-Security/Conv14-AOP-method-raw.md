@@ -1,5 +1,16 @@
+# Table of Contents
+
+- [Chat : security aspect in spring boot AOP](#security-aspect-in-spring-boot-aop)
+- [Chat : can you explain in detail authentication and authorization using spring boot AOP](#can-you-explain-in-detail-authentication-and-authorization-using-spring-boot-aop)
+- [Chat : Spring Security's method-level security annotations](#spring-security-s-method-level-security-annotations)
+- [Chat : Spring Security's method-level security annotations](#spring-security-s-method-level-security-annotations-1)
+- [Chat : "Enabling Method-Level Security (Modern Way)" what does mean by enabling method-level security](#enabling-method-level-security-modern-way-what-does-mean-by-enabling-method-level-security)
+- [Chat : "**AOP proxies**" what is proxies?](#aop-proxies-what-is-proxies)
+- [Chat : what is a wrapper object?](#what-is-a-wrapper-object)
+
 ## **Conversation **
 
+<a id="security-aspect-in-spring-boot-aop"></a>
 ### Chat : security aspect in spring boot AOP
 
 In Spring Boot, AOP (Aspect-Oriented Programming) can be leveraged to add security measures by defining specific cross-cutting concerns, like authentication, authorization, or logging sensitive actions. AOP provides a way to create aspects (modularized concerns) that can intercept method calls or other events in the application. Here’s how AOP can help with security aspects in a Spring Boot application:
@@ -99,6 +110,7 @@ In Spring Boot, AOP (Aspect-Oriented Programming) can be leveraged to add securi
 * **Reusability**: Security aspects can be reused across multiple services and methods.
 
 
+<a id="can-you-explain-in-detail-authentication-and-authorization-using-spring-boot-aop"></a>
 ### Chat : can you explain in detail authentication and authorization using spring boot AOP
 
 Using AOP for **authentication** and **authorization** in Spring Boot is a powerful approach to manage security in a centralized, modular way. Here’s a detailed breakdown of how to use Spring Boot AOP to handle authentication and authorization.
@@ -242,6 +254,7 @@ This way, when a `SecurityException` is thrown, the user receives a 403 Forbidde
 Using AOP for basic authentication and authorization checks is powerful but should be complemented by Spring Security for comprehensive security.
 
 
+<a id="spring-security-s-method-level-security-annotations"></a>
 ### Chat : Spring Security's method-level security annotations
 
 Spring Security provides **method-level security annotations** to enforce **authentication and authorization at the service / controller method level**, without writing custom AOP code.
@@ -532,6 +545,7 @@ Just tell me 👍
 
 ## **Conversation **
 
+<a id="spring-security-s-method-level-security-annotations-1"></a>
 ### Chat : Spring Security's method-level security annotations
 
 Since you already work with **Spring Boot + Spring Security** and have explored filters, JWT, and authentication flow, let’s focus on **method-level security annotations** from a *practical, backend-architect perspective*.
@@ -761,6 +775,7 @@ If you want, next we can:
 Just tell me 👍
 
 
+<a id="enabling-method-level-security-modern-way-what-does-mean-by-enabling-method-level-security"></a>
 ### Chat : "Enabling Method-Level Security (Modern Way)" what does mean by enabling method-level security
 
 Good question — this confuses many people initially 👍
@@ -966,6 +981,7 @@ If you want, next I can:
 Just tell me 👍
 
 
+<a id="aop-proxies-what-is-proxies"></a>
 ### Chat : "**AOP proxies**" what is proxies?
 
 Great follow-up 👍
@@ -1180,6 +1196,7 @@ If you want, next I can:
 Just say 👍
 
 
+<a id="what-is-a-wrapper-object"></a>
 ### Chat : what is a wrapper object?
 
 Great question — this is the **core idea** behind proxies 👍

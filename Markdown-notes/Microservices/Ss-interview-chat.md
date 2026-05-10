@@ -1,5 +1,30 @@
+# Table of Contents
+
+- [Chat : ss](#ss)
+- [Chat : ss](#ss-1)
+- [Chat : ss](#ss-2)
+- [Chat : ss](#ss-3)
+- [Chat : ss](#ss-4)
+- [Chat : ss](#ss-5)
+- [Chat : ss](#ss-6)
+- [Chat : ss](#ss-7)
+- [Chat : ss](#ss-8)
+- [Chat : ss](#ss-9)
+- [Chat : ss](#ss-10)
+- [Chat : ss](#ss-11)
+- [Chat : ss](#ss-12)
+- [Chat : " **Use Savepoints** to ensure partial rollbacks when needed." how can we achieve this in spring boot?](#use-savepoints-to-ensure-partial-rollbacks-when-needed-how-can-we-achieve-this-in-spring-boot)
+- [Chat : java program to find second highest number from a list of integers](#java-program-to-find-second-highest-number-from-a-list-of-integers)
+- [Chat : using java 8](#using-java-8)
+- [Chat : just in one line](#just-in-one-line)
+- [Chat : " .findFirst(); " can we get output here also?](#findfirst-can-we-get-output-here-also)
+- [Chat : Chat](#chat)
+- [Chat : "Cache Replacement" what actually is cache replacement?](#cache-replacement-what-actually-is-cache-replacement)
+- [Chat : Chat](#chat-1)
+
 ## **Conversation**
 
+<a id="ss"></a>
 ### Chat : ss
 
 The question in the image asks:
@@ -19,6 +44,7 @@ The best answer among the given options is:
 Would you like a more detailed explanation of the other options?
 
 
+<a id="ss-1"></a>
 ### Chat : ss
 
 The question in the image asks:
@@ -44,6 +70,7 @@ The correct answer is:
 Would you like a more detailed explanation of the incorrect options?
 
 
+<a id="ss-2"></a>
 ### Chat : ss
 
 The question in the image asks:
@@ -70,6 +97,7 @@ The correct answer is:
 Would you like a deeper explanation of stack traces?
 
 
+<a id="ss-3"></a>
 ### Chat : ss
 
 The question in the image asks:
@@ -103,6 +131,7 @@ The correct answer is:
 Would you like a deeper explanation of database performance optimizations?
 
 
+<a id="ss-4"></a>
 ### Chat : ss
 
 The question asks:
@@ -138,6 +167,7 @@ The question asks:
 Would you like more details on SQL string functions?
 
 
+<a id="ss-5"></a>
 ### Chat : ss
 
 The question asks:
@@ -169,6 +199,7 @@ The question asks:
 Would you like more details on Docker commands?
 
 
+<a id="ss-6"></a>
 ### Chat : ss
 
 The question asks:
@@ -194,6 +225,7 @@ The question asks:
 Would you like more details on Dockerizing Java applications?
 
 
+<a id="ss-7"></a>
 ### Chat : ss
 
 This question is about troubleshooting **transaction management** issues in a **large-scale enterprise application** using **JPA and Hibernate**.
@@ -234,6 +266,7 @@ This question is about troubleshooting **transaction management** issues in a **
 Would you like a detailed example with code snippets?
 
 
+<a id="ss-8"></a>
 ### Chat : ss
 
 This question is about migrating an application from **JDBC** to **JPA with Hibernate** while ensuring transactional consistency.
@@ -298,6 +331,7 @@ This question is about migrating an application from **JDBC** to **JPA with Hibe
 Would you like a code example comparing JDBC and JPA approaches?
 
 
+<a id="ss-9"></a>
 ### Chat : ss
 
 This question is about **processing large datasets using Java 8’s Stream API** and deciding between **parallel** and **sequential** streams.
@@ -368,6 +402,7 @@ This question is about **processing large datasets using Java 8’s Stream API**
 Parallel streams can **significantly boost performance** for **large datasets** but require **careful handling of concurrency** and **order sensitivity**. Would you like an example of benchmarking performance differences between sequential and parallel streams?
 
 
+<a id="ss-10"></a>
 ### Chat : ss
 
 This question is about **optimizing a Java application that processes a large dataset of user transactions in real-time**.
@@ -452,6 +487,7 @@ Transaction t = transactionStore.get(transactionId); // O(1) lookup
 Would you like an example implementation of migrating from `ArrayList` to `HashMap` or `ConcurrentHashMap`?
 
 
+<a id="ss-11"></a>
 ### Chat : ss
 
 This question is about ensuring **data consistency and integrity** in a **microservices-based financial application** that requires **distributed transactions** across multiple services. The two common approaches discussed are:
@@ -541,6 +577,7 @@ This question is about ensuring **data consistency and integrity** in a **micros
 Would you like an example **Saga implementation using Spring Boot and Kafka**?
 
 
+<a id="ss-12"></a>
 ### Chat :  ss
 
 Here’s a pseudocode implementation for an **LRU (Least Recently Used) Cache** using a **Doubly Linked List** and a **Hash Map**, ensuring **O(1) time complexity** for both `get(key)` and `put(key, value)` operations.
@@ -640,6 +677,7 @@ class LRUCache:
 This approach is **widely used in caching systems** like **LRU Cache in OS and databases**. Let me know if you need further explanation or a Java implementation!
 
 
+<a id="use-savepoints-to-ensure-partial-rollbacks-when-needed-how-can-we-achieve-this-in-spring-boot"></a>
 ### Chat : " **Use Savepoints** to ensure partial rollbacks when needed." how can we achieve this in spring boot?
 
 In **Spring Boot**, you can achieve **partial rollbacks** using **Savepoints** within **transaction management**. This is useful when you want to roll back only a part of a transaction instead of the entire transaction.
@@ -789,6 +827,7 @@ If you prefer **declarative transactions**, you can use `@Transactional(propagat
 Would you like a version using `@Transactional` as well? 🚀
 
 
+<a id="java-program-to-find-second-highest-number-from-a-list-of-integers"></a>
 ### Chat : java program to find second highest number from a list of integers
 
 Here's a **Java program** to find the **second highest number** from a list of integers:
@@ -863,6 +902,7 @@ public class SecondHighest {
 Let me know if you need any modifications! 🚀
 
 
+<a id="using-java-8"></a>
 ### Chat : using java 8
 
 Here’s how you can **find the second highest number** in a list of integers using **Java 8 streams**:
@@ -953,6 +993,7 @@ public class SecondHighest {
 Let me know if you need further clarifications! 🚀
 
 
+<a id="just-in-one-line"></a>
 ### Chat : just in one line
 
 You can find the second highest number in **one line** using Java 8 Streams:
@@ -999,6 +1040,7 @@ System.out.println(
 Let me know if you need any modifications! 🚀
 
 
+<a id="findfirst-can-we-get-output-here-also"></a>
 ### Chat : " .findFirst(); " can we get output here also?
 
 Yes! You can get the output directly by using `.orElse(null)` or `.orElseThrow()`.
@@ -1038,6 +1080,7 @@ This will **print the second highest number directly** in the console. 🚀
 
 ## **Conversation**
 
+<a id="chat"></a>
 ### Chat : 
 Please give the solution of the interview questions below 
 
@@ -1319,6 +1362,7 @@ This approach uses DFS to traverse connected islands.
 Would you like further explanations or refinements? 😊
 
 
+<a id="cache-replacement-what-actually-is-cache-replacement"></a>
 ### Chat : "Cache Replacement" what actually is cache replacement?
 
 ### **What is Cache Replacement?**
@@ -1366,6 +1410,7 @@ Since cache memory is limited in size, not all data can be stored indefinitely. 
 Would you like a real-world example or a coding implementation? 😊
 
 
+<a id="chat-1"></a>
 ### Chat : 
 Implement stack with following operations : push,pop, findMin and findMax.  
  With same stack, you can't find min, max use different data structure.

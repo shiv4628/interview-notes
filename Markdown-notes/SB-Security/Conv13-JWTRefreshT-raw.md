@@ -1,5 +1,11 @@
+# Table of Contents
+
+- [Chat : what is JWT refresh token in spring boot security, explain the flow with example](#what-is-jwt-refresh-token-in-spring-boot-security-explain-the-flow-with-example)
+- [Chat : Full Spring Boot + Angular implementation](#full-spring-boot-angular-implementation)
+
 ## **Conversation **
 
+<a id="what-is-jwt-refresh-token-in-spring-boot-security-explain-the-flow-with-example"></a>
 ### Chat : what is JWT refresh token in spring boot security, explain the flow with example
 
 Great question — this is **very important** for real-world Spring Boot + Angular security.
@@ -295,6 +301,7 @@ I can help you with:
 Just tell me 👍
 
 
+<a id="full-spring-boot-angular-implementation"></a>
 ### Chat : Full Spring Boot + Angular implementation
 
 Great — let’s build a **complete, real-world Spring Boot + Angular JWT + Refresh Token system** step by step. I’ll keep it practical and aligned with how production apps are built.

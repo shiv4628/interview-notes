@@ -1,5 +1,14 @@
+# Table of Contents
+
+- [Chat : swagger with spring boot](#swagger-with-spring-boot)
+- [Chat : what's springfox?](#what-s-springfox)
+- [Chat : what is this for "/v3/api-docs/**"](#what-is-this-for-v3-api-docs)
+- [Chat : how to configure swagger in spring boot app/](#how-to-configure-swagger-in-spring-boot-app)
+- [Chat : Yes please](#yes-please)
+
 ## **Conversation**
 
+<a id="swagger-with-spring-boot"></a>
 ### Chat : swagger with spring boot
 
 Swagger is a tool that helps in documenting and testing REST APIs. When used with **Spring Boot**, it allows you to generate interactive API documentation for your application. The Swagger UI provides a web interface where users can explore your API endpoints and interact with them.
@@ -124,6 +133,7 @@ protected void configure(HttpSecurity http) throws Exception {
 Would you like a specific example or setup for a project you’re working on?
 
 
+<a id="what-s-springfox"></a>
 ### Chat : what's springfox?
 
 **Springfox** is another popular library for generating and documenting REST APIs in Spring-based applications. Similar to SpringDoc OpenAPI, Springfox integrates with **Spring Boot** to produce Swagger-based API documentation. While **Springfox** was widely used in the past, it has become less maintained, and many developers are now transitioning to **SpringDoc OpenAPI**.
@@ -244,6 +254,7 @@ public class MyController {
 Let me know if you'd like help transitioning from Springfox to SpringDoc or setting up either tool!
 
 
+<a id="what-is-this-for-v3-api-docs"></a>
 ### Chat : what is this for "/v3/api-docs/**"
 
 The **`/v3/api-docs/**`** endpoint is part of the **SpringDoc OpenAPI** library. It serves as the backend endpoint that provides your API documentation in **OpenAPI format (JSON)**. Tools like **Swagger UI**, **Postman**, or any other API clients can use this endpoint to retrieve the API's specification.
@@ -350,6 +361,7 @@ Example snippet:
 Let me know if you’d like an example of customizing or using `/v3/api-docs` further!
 
 
+<a id="how-to-configure-swagger-in-spring-boot-app"></a>
 ### Chat : how to configure swagger in spring boot app/
 
 Configuring **Swagger** in a **Spring Boot** application is straightforward using **SpringDoc OpenAPI**. Below is a step-by-step guide to setting it up:
@@ -542,6 +554,7 @@ Now you have **Swagger UI** fully configured in your **Spring Boot** application
 Would you like a **sample GitHub repository** or further customization details? 😊
 
 
+<a id="yes-please"></a>
 ### Chat : Yes please
 
 Certainly! To help you get started with integrating **Swagger** into your **Spring Boot** application using **SpringDoc OpenAPI**, here's a sample project and additional customization details.

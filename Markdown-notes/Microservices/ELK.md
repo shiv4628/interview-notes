@@ -1,5 +1,21 @@
+# Table of Contents
+
+- [Chat : what is ELK stack](#what-is-elk-stack)
+- [Chat : is admin server serves the same role as elk stack?](#is-admin-server-serves-the-same-role-as-elk-stack)
+- [Chat : then how these are different from prometheus and grafana stack](#then-how-these-are-different-from-prometheus-and-grafana-stack)
+- [Chat : how to check logs for a particular service instance in microservice app which is using elk stack](#how-to-check-logs-for-a-particular-service-instance-in-microservice-app-which-is-using-elk-stack)
+- [Chat : what is kibana?](#what-is-kibana)
+- [Chat : what is logstash?](#what-is-logstash)
+- [Chat : how logstash collects data from various sources in case of spring boot microservice application where each service can have multiple and instances and services may deployed on different servers?](#how-logstash-collects-data-from-various-sources-in-case-of-spring-boot-microservice-application-where-each-service-can-have-multiple-and-instances-and-services-may-deployed-on-different-servers)
+- [Chat : Chat](#chat)
+- [Chat : yes what is this hybrid approach?](#yes-what-is-this-hybrid-approach)
+- [Chat : what is a facade in design pattern](#what-is-a-facade-in-design-pattern)
+- [Chat : is slf4j is facade?](#is-slf4j-is-facade)
+- [Chat : is Micrometer also a facade?](#is-micrometer-also-a-facade)
+
 ## **Conversation**
 
+<a id="what-is-elk-stack"></a>
 ### Chat : what is ELK stack
 
 The **ELK Stack** is a popular open-source suite of tools for managing, processing, and visualizing log and event data. It consists of three primary components:
@@ -41,6 +57,7 @@ The ELK Stack is often extended with **Beats**, lightweight data shippers that s
 
 
 
+<a id="is-admin-server-serves-the-same-role-as-elk-stack"></a>
 ### Chat : is admin server serves the same role as elk stack?
 
 No, **Spring Boot Admin Server** and the **ELK Stack** (Elasticsearch, Logstash, and Kibana) serve distinct roles, though there is some overlap in their monitoring capabilities. Here’s a breakdown of their differences and how they can complement each other:
@@ -84,6 +101,7 @@ No, **Spring Boot Admin Server** and the **ELK Stack** (Elasticsearch, Logstash,
 Both tools can effectively complement each other in a microservices ecosystem, with Spring Boot Admin handling immediate application health and ELK providing rich, historical log data and analytics.
 
 
+<a id="then-how-these-are-different-from-prometheus-and-grafana-stack"></a>
 ### Chat : then how these are different from prometheus and grafana stack
 
 **Prometheus** and **Grafana** form a powerful stack for monitoring, metrics collection, and visualization, but they focus on different aspects compared to Spring Boot Admin and the ELK Stack. Here’s how they compare and differ from Spring Boot Admin and the ELK Stack:
@@ -138,6 +156,7 @@ This combination covers real-time monitoring, log aggregation, and metric-based 
 
 ## **Conversation**
 
+<a id="how-to-check-logs-for-a-particular-service-instance-in-microservice-app-which-is-using-elk-stack"></a>
 ### Chat : how to check logs for a particular service instance in microservice app which is using elk stack
 
 If your microservices application is using the **ELK stack (Elasticsearch, Logstash, Kibana)** for logging, you can check logs for a particular service instance using Kibana and Elasticsearch queries.
@@ -241,6 +260,7 @@ Would you like help in automating log searches or setting up alerts for specific
 
 ## **Conversation**
 
+<a id="what-is-kibana"></a>
 ### Chat : what is kibana?
 
 Kibana is an open-source data visualization and exploration tool designed to work with **Elasticsearch**. It provides a user-friendly interface to analyze and visualize log data, metrics, and time-series data stored in Elasticsearch.
@@ -273,6 +293,7 @@ Kibana is typically used as part of the **ELK Stack** (Elasticsearch, Logstash, 
 Would you like help setting up Kibana or understanding how to use it with your projects? 🚀
 
 
+<a id="what-is-logstash"></a>
 ### Chat : what is logstash?
 
 Logstash is an open-source data processing pipeline tool that is part of the **Elastic Stack (ELK Stack)**. It is used to collect, process, and forward logs or event data from various sources.
@@ -301,6 +322,7 @@ It works in three stages:
 Would you like an example of a Logstash configuration file? 🚀
 
 
+<a id="how-logstash-collects-data-from-various-sources-in-case-of-spring-boot-microservice-application-where-each-service-can-have-multiple-and-instances-and-services-may-deployed-on-different-servers"></a>
 ### Chat : how logstash collects data from various sources in case of spring boot microservice application where each service can have multiple and instances and services may deployed on different servers?
 
 In a **Spring Boot microservices** architecture, where multiple services run on different servers and have multiple instances, **Logstash** collects logs efficiently using centralized logging mechanisms. Below is how Logstash collects logs in such a distributed setup:
@@ -393,6 +415,7 @@ Instead of sending logs directly to Logstash, microservices **send logs to Kafka
 Would you like a sample **Logstash pipeline configuration** for processing logs from these sources? 🚀
 
 
+<a id="chat"></a>
 ### Chat : 
 " **Filebeat + Logstash**When microservices log into files (disk-based logging).**Logback Appender**When services need real-time log streaming."
 
@@ -630,6 +653,7 @@ sudo systemctl restart logstash
 Do you want to implement a **hybrid approach** that combines both methods? 🚀
 
 
+<a id="yes-what-is-this-hybrid-approach"></a>
 ### Chat : yes what is this hybrid approach?
 
 ### **Hybrid Approach: Combining Filebeat + Logback Appender for Reliable and Real-time Logging**
@@ -812,6 +836,7 @@ Would you like an **automated script** to set up this hybrid approach? 🚀
 
 ## **Conversation**
 
+<a id="what-is-a-facade-in-design-pattern"></a>
 ### Chat : what is a facade in design pattern
 
 The **Facade** is a structural design pattern that provides a simplified interface to a complex subsystem or a group of classes. It helps in hiding the complexities of a system by providing a higher-level interface that makes the subsystem easier to use. The Facade pattern is often used when:
@@ -879,6 +904,7 @@ public class Client {
 In this example, the `HomeTheaterFacade` provides a simplified interface to the complex subsystem, making it easy to start a movie with a single method call.
 
 
+<a id="is-slf4j-is-facade"></a>
 ### Chat : is slf4j is facade?
 
 Yes, **SLF4J (Simple Logging Facade for Java)** is a great example of the Facade design pattern in action.
@@ -927,6 +953,7 @@ With SLF4J, the above `logger.info` or `logger.error` calls do not directly perf
 In summary, SLF4J is a perfect example of the Facade pattern because it simplifies the interaction with different logging frameworks and offers a unified logging interface.
 
 
+<a id="is-micrometer-also-a-facade"></a>
 ### Chat : is Micrometer also a facade?
 
 Yes, **Micrometer** can also be considered a facade. Micrometer is a **metrics facade** for Java applications, providing a unified API for working with different monitoring and metrics systems. It enables applications to record metrics (e.g., counters, gauges, timers) and publish them to various monitoring backends such as Prometheus, Graphite, InfluxDB, or CloudWatch, without being tightly coupled to any specific monitoring solution.

@@ -1,7 +1,13 @@
+# Table of Contents
+
+- [Chat : can you explain the role of authenticationManager, authenticationProvider etc in spring security jwt mechanism?](#can-you-explain-the-role-of-authenticationmanager-authenticationprovider-etc-in-spring-security-jwt-mechanism)
+- [Chat : from where these methods are called:](#from-where-these-methods-are-called)
+
 # Spring Security JWT Authentication - Chat Style Guide
 
 ## **Conversation 1**
 
+<a id="can-you-explain-the-role-of-authenticationmanager-authenticationprovider-etc-in-spring-security-jwt-mechanism"></a>
 ### Chat : can you explain the role of authenticationManager, authenticationProvider etc in spring security jwt mechanism?
 
 Since you're already working with **Spring Boot microservices + JWT + API Gateway**, I'll explain this **exactly in that context**, not generic theory.
@@ -219,6 +225,7 @@ If you want, next I can:
 
 Just tell me 👍
 
+<a id="from-where-these-methods-are-called"></a>
 ### Chat : from where these methods are called:
             authenticationProvider()
             authenticationManager()

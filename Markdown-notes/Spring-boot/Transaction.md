@@ -1,5 +1,15 @@
+# Table of Contents
+
+- [Chat : transaction management in spring boot](#transaction-management-in-spring-boot)
+- [Chat : transaction aspect in spring boot AOP](#transaction-aspect-in-spring-boot-aop)
+- [Chat : can a spring boot microservice application use both i.e, distributed transaction management(using choreography) and Transaction management using @Transactional annotations?](#can-a-spring-boot-microservice-application-use-both-i-e-distributed-transaction-management-using-choreography-and-transaction-management-using-transactional-annotations)
+- [Chat : transaction management use case](#transaction-management-use-case)
+- [Chat : use case in case of a spring boot ecommerce application](#use-case-in-case-of-a-spring-boot-ecommerce-application)
+- [Chat : can you give me complete code for this feature?](#can-you-give-me-complete-code-for-this-feature)
+
 ## **Conversation**
 
+<a id="transaction-management-in-spring-boot"></a>
 ### Chat : transaction management in spring boot
 
 Transaction management in Spring Boot is handled primarily through the `@Transactional` annotation, which simplifies managing database transactions within the application. Here’s a breakdown of how it works and the steps involved:
@@ -105,6 +115,7 @@ public void executeInTransaction() {
 This approach makes Spring Boot's transaction management flexible and powerful for managing data consistency and handling complex transactional requirements.
 
 
+<a id="transaction-aspect-in-spring-boot-aop"></a>
 ### Chat : transaction aspect in spring boot AOP
 
 In Spring Boot, transaction management can be integrated with **Aspect-Oriented Programming (AOP)** to intercept and manage transactions across your application. Spring’s AOP capabilities allow transactions to be transparently applied, making the code cleaner and more maintainable.
@@ -209,6 +220,7 @@ This will show logs for transaction start, commit, and rollback actions, allowin
 Spring AOP, combined with `@Transactional`, provides a powerful way to manage transactions declaratively in Spring Boot. By leveraging AOP proxies, Spring can handle transaction management transparently, reducing boilerplate code and keeping your business logic clean.
 
 
+<a id="can-a-spring-boot-microservice-application-use-both-i-e-distributed-transaction-management-using-choreography-and-transaction-management-using-transactional-annotations"></a>
 ### Chat : can a spring boot microservice application use both i.e, distributed transaction management(using choreography) and Transaction management using @Transactional annotations?
 
 Yes, a **Spring Boot microservice application** can use both **distributed transaction management (using choreography)** and **local transaction management (using `@Transactional` annotations)** in different contexts. Here's how both can coexist:
@@ -345,6 +357,7 @@ By combining **local transactions** with **event-driven distributed transactions
 
 ## **Conversation**
 
+<a id="transaction-management-use-case"></a>
 ### Chat : transaction management use case
 
 Transaction management is critical in ensuring data consistency, integrity, and reliability, especially in systems dealing with multiple operations that need to be treated as a single unit of work. Here's a use case to illustrate transaction management:
@@ -443,6 +456,7 @@ public class FundTransferService {
 This is a practical example of how transaction management plays a vital role in ensuring reliable and consistent operations in real-world applications. Would you like to discuss more scenarios or dive deeper into specific aspects?
 
 
+<a id="use-case-in-case-of-a-spring-boot-ecommerce-application"></a>
 ### Chat : use case in case of a spring boot ecommerce application
 
 ### **Use Case: Order Placement in a Spring Boot E-commerce Application**
@@ -606,6 +620,7 @@ public class OrderService {
 This ensures atomicity, consistency, and reliability in an e-commerce order placement workflow. Would you like to expand this with specific features, such as handling concurrent requests or adding logging?
 
 
+<a id="can-you-give-me-complete-code-for-this-feature"></a>
 ### Chat : can you give me complete code for this feature?
 
 Here’s the **complete code** for the "Order Placement" feature in a Spring Boot application. It includes entities, repositories, services, and a controller.

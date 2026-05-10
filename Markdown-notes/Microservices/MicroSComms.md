@@ -1,5 +1,12 @@
+# Table of Contents
+
+- [Chat : how services communicate in case of a external microservice communication, suppose one service is trying to communicate to another service of an another microservice application](#how-services-communicate-in-case-of-a-external-microservice-communication-suppose-one-service-is-trying-to-communicate-to-another-service-of-an-another-microservice-application)
+- [Chat : can you explain by implementing using RestTemplate and WebClient](#can-you-explain-by-implementing-using-resttemplate-and-webclient)
+- [Chat : spring boot WebClient communication](#spring-boot-webclient-communication)
+
 ## **Conversation**
 
+<a id="how-services-communicate-in-case-of-a-external-microservice-communication-suppose-one-service-is-trying-to-communicate-to-another-service-of-an-another-microservice-application"></a>
 ### Chat : how services communicate in case of a external microservice communication, suppose one service is trying to communicate to another service of an another microservice application
 
 In the context of microservice architecture, when one service from one application communicates with another service from a different microservice application (external microservice communication), it generally involves the following mechanisms:
@@ -141,6 +148,7 @@ Assume `Service A` (E-commerce app) communicates with `Service B` (Payment Gatew
 Would you like to dive deeper into any specific approach?
 
 
+<a id="can-you-explain-by-implementing-using-resttemplate-and-webclient"></a>
 ### Chat : can you explain by implementing using RestTemplate and WebClient
 
 Sure! Here's an explanation of how to implement external microservice communication using `RestTemplate` and `WebClient` in a Spring Boot application.
@@ -332,6 +340,7 @@ Would you like more details on any specific part of the implementation?
 
 ## **Conversation**
 
+<a id="spring-boot-webclient-communication"></a>
 ### Chat : spring boot WebClient communication
 
 Spring Boot's `WebClient` is part of the **Spring WebFlux** module and is used to make asynchronous, non-blocking HTTP requests. It is the modern alternative to the now-deprecated `RestTemplate`. Here's a breakdown of how to use `WebClient` for inter-service communication:
