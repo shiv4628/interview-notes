@@ -32,6 +32,7 @@
 <a id="explain-how-this-thread-are-created-in-declaration-itself"></a>
 ### Chat : explain how this thread are created in declaration itself,
 
+```java
 class Counter {
     private int count = 0;
 
@@ -73,6 +74,7 @@ public class Main {
         System.out.println("Count: " + counter.getCount());
     }
 }
+```
 
 ### Ans : 
 
